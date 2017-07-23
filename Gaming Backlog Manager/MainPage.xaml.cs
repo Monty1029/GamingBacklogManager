@@ -26,5 +26,10 @@ namespace Gaming_Backlog_Manager
         {
             this.InitializeComponent();
         }
+
+        private void Add_Game(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AddGame));
+        }
     }
 }

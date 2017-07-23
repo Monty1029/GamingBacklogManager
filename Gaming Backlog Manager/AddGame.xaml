@@ -1,0 +1,21 @@
+﻿<Page
+    x:Class="Gaming_Backlog_Manager.AddGame"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Gaming_Backlog_Manager"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock HorizontalAlignment="Left" Margin="50,118,0,0" TextWrapping="Wrap" Text="Game Title" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="50,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="500"/>        
+        <TextBlock HorizontalAlignment="Left" Margin="50,200,0,0" TextWrapping="Wrap" Text="System" VerticalAlignment="Top"/>
+        <ComboBox x:Name="SystemComboBox" HorizontalAlignment="Left" Margin="50,232,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind systems}" PlaceholderText="PC"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,282,0,0" TextWrapping="Wrap" Text="Region" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="50,314,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind regions}" PlaceholderText="North America"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,364,0,0" TextWrapping="Wrap" Text="Ownership" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="50,396,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind ownership}" PlaceholderText="Owned"/>
+
+    </Grid>
+</Page>
