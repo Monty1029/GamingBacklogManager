@@ -25,7 +25,10 @@ namespace Gaming_Backlog_Manager
     {
         private ObservableCollection<string> systems = new ObservableCollection<string>
             {
-                "PlayStation 4", "PC", "3DS", "Nintendo Switch", "Xbox One", "iOS", "Wii U", "Android", "PlayStation Vita", "Windows Mobile"
+                "3DO", "3DS", "Amiga", "Android", "Atari 2600", "Atari 5200", "Atari 7800", "ColecoVision", "Commodore 64", "Dreamcast", "DS", "Game Boy",
+                "Game Boy Color", "Game Advance", "GameCube", "iOS", "Jaguar", "NES", "NeoGeo Pocket Color", "Nintendo 64", "Nintendo Switch", "PC", "PlayStation",
+                "PlayStation 2", "PlayStation 3", "PlayStation 4", "PlayStation Vita", "PSP", "Sega Genesis", "Sega Genesis/Mega Drive", "Sega Master System",
+                "Sega Saturn", "Super Nintendo", "Turbo Grafx-16", "Wii U", "Wii", "Windows Mobile", "WonderSwan Color", "WonderSwan", "Xbox", "Xbox 360", "Xbox One"
             };
 
         private ObservableCollection<string> regions = new ObservableCollection<string>
@@ -36,6 +39,11 @@ namespace Gaming_Backlog_Manager
         private ObservableCollection<string> ownership = new ObservableCollection<string>
             {
                 "Owned", "Subscription", "Borrowed/Rented"
+            };
+
+        private ObservableCollection<string> distribution = new ObservableCollection<string>
+            {
+                "Digital", "Physical"
             };
 
         public AddGame()

@@ -16,6 +16,8 @@
         <ComboBox HorizontalAlignment="Left" Margin="50,314,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind regions}" PlaceholderText="North America"/>
         <TextBlock HorizontalAlignment="Left" Margin="50,364,0,0" TextWrapping="Wrap" Text="Ownership" VerticalAlignment="Top"/>
         <ComboBox HorizontalAlignment="Left" Margin="50,396,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind ownership}" PlaceholderText="Owned"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,446,0,0" TextWrapping="Wrap" Text="Distribution" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="50,478,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind distribution}" PlaceholderText="Digital"/>
 
     </Grid>
 </Page>
