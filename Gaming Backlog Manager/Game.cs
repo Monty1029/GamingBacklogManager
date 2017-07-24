@@ -8,111 +8,141 @@ namespace Gaming_Backlog_Manager
 {
     class Game
     {
-        private string gameTitle;
-        private string system;
-        private string region;
-        private string ownership;
-        private string distribution;
+        private string _gameTitle { get; set; }
+        private string _system { get; set; }
+        private string _region { get; set; }
+        private string _ownership { get; set; }
+        private string _distribution { get; set; }
 
-        private string status;
-        private int achievements1;
-        private int achievements2;
-        private string notes;
-        private bool nowPlaying;
+        private string _status { get; set; }
+        private int _achievements1 { get; set; }
+        private int _achievements2 { get; set; }
+        private string _notes { get; set; }
+        private bool _nowPlaying { get; set; }
 
         public Game()
         {
             
         }
 
-        public string GetGameTitle()
+        public string GameTitle
         {
-            return gameTitle;
-        }
-        public void SetGameTitle(string gameTitle)
-        {
-            this.gameTitle = gameTitle;
-        }
-
-        public string GetSystem()
-        {
-            return system;
-        }
-        public void SetSystem(string system)
-        {
-            this.system = system;
+            get
+            {
+                return this._gameTitle;
+            }
+            set
+            {
+                this._gameTitle = value;
+            }
         }
 
-        public string GetRegion()
+        public string System
         {
-            return region;
-        }
-        public void SetRegion(string region)
-        {
-            this.region = region;
-        }
-
-        public string GetOwnership()
-        {
-            return ownership;
-        }
-        public void SetOwnership(string ownership)
-        {
-            this.ownership = ownership;
+            get
+            {
+                return this._system;
+            }
+            set
+            {
+                this._system = value;
+            }
         }
 
-        public string GetDistribution()
+        public string Region
         {
-            return distribution;
-        }
-        public void SetDistribution(string distribution)
-        {
-            this.distribution = distribution;
-        }
-
-        public string GetStatus()
-        {
-            return status;
-        }
-        public void SetStatus(string status)
-        {
-            this.status = status;
+            get
+            {
+                return this._region;
+            }
+            set
+            {
+                this._region = value;
+            }
         }
 
-        public int GetAchievements1()
+        public string Ownership
         {
-            return achievements1;
-        }
-        public void SetAchievements1(int achievements1)
-        {
-            this.achievements1 = achievements1;
-        }
-
-        public int GetAchievements2()
-        {
-            return achievements2;
-        }
-        public void SetAchievements2(int achievements2)
-        {
-            this.achievements2 = achievements2;
+            get
+            {
+                return this._ownership;
+            }
+            set
+            {
+                this._ownership = value;
+            }
         }
 
-        public string GetNotes()
+        public string Distribution
         {
-            return notes;
-        }
-        public void SetNotes(string notes)
-        {
-            this.notes = notes;
+            get
+            {
+                return this._distribution;
+            }
+            set
+            {
+                this._distribution = value;
+            }
         }
 
-        public bool IsNowPlaying()
+        public string Status
         {
-            return nowPlaying;
+            get
+            {
+                return this._status;
+            }
+            set
+            {
+                this._status = value;
+            }
         }
-        public void SetNowPlaying(bool nowPlaying)
+
+        public int Achievements1
         {
-            this.nowPlaying = nowPlaying;
+            get
+            {
+                return this._achievements1;
+            }
+            set
+            {
+                this._achievements1 = value;
+            }
+        }
+
+        public int Achievements2
+        {
+            get
+            {
+                return this._achievements2;
+            }
+            set
+            {
+                this._achievements2 = value;
+            }
+        }
+
+        public string Notes
+        {
+            get
+            {
+                return this._notes;
+            }
+            set
+            {
+                this._notes = value;
+            }
+        }
+
+        public bool NowPlaying
+        {
+            get
+            {
+                return this._nowPlaying;
+            }
+            set
+            {
+                this._nowPlaying = value;
+            }
         }
     }
 }

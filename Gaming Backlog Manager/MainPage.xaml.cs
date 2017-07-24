@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -37,6 +39,9 @@ namespace Gaming_Backlog_Manager
             if (e.Parameter is Game)
             {
                 Game game = (Game)e.Parameter;
+                string json = JsonConvert.SerializeObject(game);
+                Debug.WriteLine(json);
+                Game game_deserialized = JsonConvert.DeserializeObject<Game>(json);
             }
         }
     }

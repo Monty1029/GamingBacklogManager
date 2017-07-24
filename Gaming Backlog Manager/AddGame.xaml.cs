@@ -144,23 +144,23 @@ namespace Gaming_Backlog_Manager
         {
             ValidateEntries();
             Game game = new Game();
-            game.SetGameTitle(game_title_textbox.Text);
-            game.SetSystem(systemText);
-            game.SetRegion(regionText);
-            game.SetOwnership(ownershipText);
-            game.SetDistribution(distributionText);
+            game.GameTitle = game_title_textbox.Text;
+            game.System = systemText;
+            game.Region = regionText;
+            game.Ownership = ownershipText;
+            game.Distribution = distributionText;
 
             CheckSelectedStatus();
-            game.SetStatus(statusText);
+            game.Status = statusText;
             if (!achievements1_textbox.Text.Equals("", StringComparison.Ordinal) && !achievements2_textbox.Text.Equals("", StringComparison.Ordinal))
             {
-                game.SetAchievements1(Int32.Parse(achievements1_textbox.Text));
-                game.SetAchievements2(Int32.Parse(achievements2_textbox.Text));
+                game.Achievements1 = Int32.Parse(achievements1_textbox.Text);
+                game.Achievements2 = Int32.Parse(achievements2_textbox.Text);
             }            
-            game.SetNotes(notes_textbox.Text);
+            game.Notes = notes_textbox.Text;
             CheckNowPlaying();
-            game.SetNowPlaying(nowPlayingInput);
-            //this.Frame.Navigate(typeof(MainPage), game);
+            game.NowPlaying = nowPlayingInput;
+            this.Frame.Navigate(typeof(MainPage), game);
         }
 
         private void System_combobox_SelectedIndexChanged(object sender, SelectionChangedEventArgs e)
