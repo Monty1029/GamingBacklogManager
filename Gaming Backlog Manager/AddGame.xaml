@@ -8,16 +8,39 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock HorizontalAlignment="Left" Margin="50,118,0,0" TextWrapping="Wrap" Text="Game Title" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="50,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="500"/>        
-        <TextBlock HorizontalAlignment="Left" Margin="50,200,0,0" TextWrapping="Wrap" Text="System" VerticalAlignment="Top"/>
-        <ComboBox x:Name="SystemComboBox" HorizontalAlignment="Left" Margin="50,232,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind systems}" PlaceholderText="PC"/>
-        <TextBlock HorizontalAlignment="Left" Margin="50,282,0,0" TextWrapping="Wrap" Text="Region" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="50,314,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind regions}" PlaceholderText="North America"/>
-        <TextBlock HorizontalAlignment="Left" Margin="50,364,0,0" TextWrapping="Wrap" Text="Ownership" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="50,396,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind ownership}" PlaceholderText="Owned"/>
-        <TextBlock HorizontalAlignment="Left" Margin="50,446,0,0" TextWrapping="Wrap" Text="Distribution" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="50,478,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind distribution}" PlaceholderText="Digital"/>
+        <ScrollViewer>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Height="1080" Margin="50,50,0,0" VerticalAlignment="Top" Width="750">
+                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Game Information" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Game Title" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="500"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="System" VerticalAlignment="Top"/>
+                <ComboBox x:Name="SystemComboBox" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind systems}" PlaceholderText="PC"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Region" VerticalAlignment="Top"/>
+                <ComboBox HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind regions}" PlaceholderText="North America"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Ownership" VerticalAlignment="Top"/>
+                <ComboBox HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind ownership}" PlaceholderText="Owned"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Distribution" VerticalAlignment="Top"/>
+                <ComboBox HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind distribution}" PlaceholderText="Digital"/>
+
+                <TextBlock HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" Text="Progress" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Status" VerticalAlignment="Top"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="32" Margin="0,0,0,0" VerticalAlignment="Top" Width="750">
+                    <RadioButton Content="Unplayed" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" GroupName="Status"/>
+                    <RadioButton Content="Unfinished" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" GroupName="Status"/>
+                    <RadioButton Content="Beaten" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" GroupName="Status"/>
+                    <RadioButton Content="Completed" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" GroupName="Status"/>
+                </StackPanel>
+                <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Achievements / Trophies" VerticalAlignment="Top"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="32" Margin="0,0,0,0" VerticalAlignment="Top" Width="250">
+                    <TextBox HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="40"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text=" out of" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Margin="5,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="40"/>
+                </StackPanel>
+                <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Notes" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="500" MinHeight="32"/>
+                <CheckBox Content="Now Playing" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,25,0,0"/>
+            </StackPanel>
+        </ScrollViewer>
 
     </Grid>
 </Page>
