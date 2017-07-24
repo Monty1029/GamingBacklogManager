@@ -22,7 +22,7 @@ namespace Gaming_Backlog_Manager
 
         public Game()
         {
-
+            
         }
 
         public string GetGameTitle()

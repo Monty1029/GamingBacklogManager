@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -46,10 +47,119 @@ namespace Gaming_Backlog_Manager
                 "Digital", "Physical"
             };
 
+        private string systemText;
+        private string regionText;
+        private string ownershipText;
+        private string distributionText;
+
+        private string statusText;
+        private bool nowPlayingInput;
+
         public AddGame()
         {   
             this.InitializeComponent();
+        }
 
+        private void ValidateEntries()
+        {
+            if (game_title_textbox.Text.Equals("", StringComparison.Ordinal))
+            {
+                game_title_textbox.BorderBrush = new SolidColorBrush(Colors.Red);
+            }
+            else
+            {
+                game_title_textbox.BorderBrush = new SolidColorBrush(Colors.Silver);
+            }
+            if (system_combobox.SelectedItem == null)
+            {
+                system_combobox.BorderBrush = new SolidColorBrush(Colors.Red);
+            }
+            else
+            {
+                system_combobox.BorderBrush = new SolidColorBrush(Colors.Silver);
+            }
+            if (region_combobox.SelectedItem == null)
+            {
+                region_combobox.BorderBrush = new SolidColorBrush(Colors.Red);
+            }
+            else
+            {
+                region_combobox.BorderBrush = new SolidColorBrush(Colors.Silver);
+            }
+            if (ownership_combobox.SelectedItem == null)
+            {
+                ownership_combobox.BorderBrush = new SolidColorBrush(Colors.Red);
+            }
+            else
+            {
+                ownership_combobox.BorderBrush = new SolidColorBrush(Colors.Silver);
+            }
+            if (distribution_combobox.SelectedItem == null)
+            {
+                distribution_combobox.BorderBrush = new SolidColorBrush(Colors.Red);
+            }
+            else
+            {
+                distribution_combobox.BorderBrush = new SolidColorBrush(Colors.Silver);
+            }
+        }
+
+        private void Submit_Click(object sender, RoutedEventArgs e)
+        {
+            Game game = new Game();
+            game.SetGameTitle(game_title_textbox.Text);
+            game.SetSystem(systemText);
+            game.SetRegion(regionText);
+            game.SetOwnership(ownershipText);
+            game.SetDistribution(distributionText);
+        }
+
+        private void System_combobox_SelectedIndexChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (system_combobox.SelectedItem == null)
+            {
+                return;
+            }
+            else
+            {
+                systemText = (string)system_combobox.SelectedItem;
+            }            
+        }
+
+        private void Region_combobox_SelectedIndexChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (region_combobox.SelectedItem == null)
+            {
+                return;
+            }
+            else
+            {
+                regionText = (string)region_combobox.SelectedItem;
+            }
+        }
+
+        private void Ownership_combobox_SelectedIndexChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ownership_combobox.SelectedItem == null)
+            {
+                return;
+            }
+            else
+            {
+                ownershipText = (string)ownership_combobox.SelectedItem;
+            }
+        }
+
+        private void Distribution_combobox_SelectedIndexChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (distribution_combobox.SelectedItem == null)
+            {
+                return;
+            }
+            else
+            {
+                distributionText = (string)distribution_combobox.SelectedItem;
+            }
         }
     }
 }
