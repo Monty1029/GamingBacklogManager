@@ -9,7 +9,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <ScrollViewer>
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Height="1080" Margin="50,50,0,0" VerticalAlignment="Top" Width="750">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Height="900" Margin="50,50,0,0" VerticalAlignment="Top" Width="500">
                 <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Game Information" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
                 <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Game Title" VerticalAlignment="Top"/>
                 <TextBox HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="500"/>
@@ -39,6 +39,7 @@
                 <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Notes" VerticalAlignment="Top"/>
                 <TextBox HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="500" MinHeight="32"/>
                 <CheckBox Content="Now Playing" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,25,0,0"/>
+                <Button Content="Add Game" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,25,0,0"/>                
             </StackPanel>
         </ScrollViewer>
 
