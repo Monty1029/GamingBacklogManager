@@ -53,7 +53,7 @@ namespace Gaming_Backlog_Manager
         private string distributionText;
 
         private string statusText;
-        private bool nowPlayingInput;
+        private bool nowPlayingInput = false;
 
         public AddGame()
         {   
@@ -102,16 +102,65 @@ namespace Gaming_Backlog_Manager
             {
                 distribution_combobox.BorderBrush = new SolidColorBrush(Colors.Silver);
             }
+            if (!(bool)status_unplayed.IsChecked && !(bool)status_unfinished.IsChecked && !(bool)status_beaten.IsChecked && !(bool)status_completed.IsChecked)
+            {
+                status_border.BorderBrush = new SolidColorBrush(Colors.Red);
+            }
+            else
+            {
+                status_border.BorderBrush = new SolidColorBrush(Colors.White);
+            }
+        }
+
+        private void CheckSelectedStatus()
+        {
+            if ((bool)status_unplayed.IsChecked)
+            {
+                statusText = (string)status_unplayed.Content;
+            }
+            else if ((bool)status_unfinished.IsChecked)
+            {
+                statusText = (string)status_unfinished.Content;
+            }
+            else if ((bool)status_beaten.IsChecked)
+            {
+                statusText = (string)status_beaten.Content;
+            }
+            else if ((bool)status_completed.IsChecked)
+            {
+                statusText = (string)status_completed.Content;
+            }
+        }
+
+        private void CheckNowPlaying()
+        {
+            if ((bool)now_playing_checkbox.IsChecked)
+            {
+                nowPlayingInput = true;
+            }
         }
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
+            ValidateEntries();
             Game game = new Game();
             game.SetGameTitle(game_title_textbox.Text);
             game.SetSystem(systemText);
             game.SetRegion(regionText);
             game.SetOwnership(ownershipText);
             game.SetDistribution(distributionText);
+
+            CheckSelectedStatus();
+            game.SetStatus(statusText);
+            if (!achievements1_textbox.Text.Equals("", StringComparison.Ordinal) && !achievements2_textbox.Text.Equals("", StringComparison.Ordinal))
+            {
+                game.SetAchievements1(Int32.Parse(achievements1_textbox.Text));
+                game.SetAchievements2(Int32.Parse(achievements2_textbox.Text));
+            }            
+            game.SetNotes(notes_textbox.Text);
+            CheckNowPlaying();
+            game.SetNowPlaying(nowPlayingInput);
+            //this.Frame.Navigate(typeof(MainPage), game);
         }
 
         private void System_combobox_SelectedIndexChanged(object sender, SelectionChangedEventArgs e)

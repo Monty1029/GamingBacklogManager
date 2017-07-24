@@ -105,5 +105,14 @@ namespace Gaming_Backlog_Manager
         {
             this.notes = notes;
         }
+
+        public bool IsNowPlaying()
+        {
+            return nowPlaying;
+        }
+        public void SetNowPlaying(bool nowPlaying)
+        {
+            this.nowPlaying = nowPlaying;
+        }
     }
 }

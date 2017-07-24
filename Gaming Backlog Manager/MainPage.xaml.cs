@@ -31,5 +31,13 @@ namespace Gaming_Backlog_Manager
         {
             this.Frame.Navigate(typeof(AddGame));
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter is Game)
+            {
+                Game game = (Game)e.Parameter;
+            }
+        }
     }
 }

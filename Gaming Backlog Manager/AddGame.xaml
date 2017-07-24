@@ -24,12 +24,14 @@
 
                 <TextBlock HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" Text="Progress" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
                 <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Status" VerticalAlignment="Top"/>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="32" Margin="0,0,0,0" VerticalAlignment="Top" Width="750">
+                <Border x:Name="status_border" Padding="5,0,0,0"  BorderThickness="2,2,2,2" BorderBrush="White">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="32" Margin="0,0,0,0" VerticalAlignment="Top" Width="500">
                     <RadioButton x:Name="status_unplayed" Content="Unplayed" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" GroupName="Status"/>
                     <RadioButton x:Name="status_unfinished" Content="Unfinished" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" GroupName="Status"/>
                     <RadioButton x:Name="status_beaten" Content="Beaten" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" GroupName="Status"/>
                     <RadioButton x:Name="status_completed" Content="Completed" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" GroupName="Status"/>
                 </StackPanel>
+                </Border>
                 <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Achievements / Trophies" VerticalAlignment="Top"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="32" Margin="0,0,0,0" VerticalAlignment="Top" Width="250">
                     <TextBox x:Name="achievements1_textbox" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="40"/>
