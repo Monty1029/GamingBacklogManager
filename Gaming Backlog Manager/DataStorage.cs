@@ -24,7 +24,6 @@ namespace Gaming_Backlog_Manager
         public async void SerializeGameAsync()
         {
             string json = JsonConvert.SerializeObject(_gameo);
-            Debug.WriteLine(json);
             StorageFolder localFolder = ApplicationData.Current.LocalFolder;
             StorageFile textFile = await localFolder.CreateFileAsync("backlogdata.txt", CreationCollisionOption.ReplaceExisting);
             var stream = await textFile.OpenAsync(FileAccessMode.ReadWrite);
@@ -35,7 +34,6 @@ namespace Gaming_Backlog_Manager
                 {
                     textWriter.WriteString(json);
                     await textWriter.StoreAsync();
-                    await textStream.FlushAsync();
                 }
             }
         }
@@ -53,7 +51,6 @@ namespace Gaming_Backlog_Manager
                 {
                     uint numBytesLoaded = await textReader.LoadAsync((uint)size);
                     textRead = textReader.ReadString(numBytesLoaded);
-                    Debug.WriteLine(textRead);
                 }
             }
         }

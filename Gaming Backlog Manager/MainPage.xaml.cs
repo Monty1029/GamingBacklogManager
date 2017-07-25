@@ -27,8 +27,8 @@ namespace Gaming_Backlog_Manager
         {
             this.InitializeComponent();
             DataStorage ds = new DataStorage();
+            ds.DeserializeGameAsync();
             string json = ds.getTextRead();
-            Debug.WriteLine(json);
         }
 
         private void Add_Game(object sender, RoutedEventArgs e)
