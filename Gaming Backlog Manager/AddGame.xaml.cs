@@ -160,7 +160,10 @@ namespace Gaming_Backlog_Manager
             game.Notes = notes_textbox.Text;
             CheckNowPlaying();
             game.NowPlaying = nowPlayingInput;
-            this.Frame.Navigate(typeof(MainPage), game);
+            DataStorage ds = new DataStorage();
+            ds.GameO = game;
+            ds.SerializeGameAsync();
+            this.Frame.Navigate(typeof(MainPage));
         }
 
         private void System_combobox_SelectedIndexChanged(object sender, SelectionChangedEventArgs e)

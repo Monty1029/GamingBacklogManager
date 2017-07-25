@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -27,22 +26,14 @@ namespace Gaming_Backlog_Manager
         public MainPage()
         {
             this.InitializeComponent();
+            DataStorage ds = new DataStorage();
+            string json = ds.getTextRead();
+            Debug.WriteLine(json);
         }
 
         private void Add_Game(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(AddGame));
-        }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            if (e.Parameter is Game)
-            {
-                Game game = (Game)e.Parameter;
-                string json = JsonConvert.SerializeObject(game);
-                Debug.WriteLine(json);
-                Game game_deserialized = JsonConvert.DeserializeObject<Game>(json);
-            }
-        }
+        }        
     }
 }
