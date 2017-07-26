@@ -23,6 +23,8 @@ namespace Gaming_Backlog_Manager
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        List<Game> games = new List<Game>();
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -33,7 +35,7 @@ namespace Gaming_Backlog_Manager
         {
             DataStorage ds = new DataStorage();
             await ds.DeserializeGameAsync();
-            string json = ds.getTextRead();
+            games = ds.Games;
         }
 
         private void Add_Game(object sender, RoutedEventArgs e)

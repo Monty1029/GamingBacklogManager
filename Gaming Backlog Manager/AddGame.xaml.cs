@@ -55,6 +55,9 @@ namespace Gaming_Backlog_Manager
         private string statusText;
         private bool nowPlayingInput = false;
 
+        Game game = new Game();
+        List<Game> games = new List<Game>();
+
         public AddGame()
         {   
             this.InitializeComponent();
@@ -142,8 +145,7 @@ namespace Gaming_Backlog_Manager
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-            ValidateEntries();
-            Game game = new Game();
+            ValidateEntries();            
             game.GameTitle = game_title_textbox.Text;
             game.System = systemText;
             game.Region = regionText;
@@ -160,10 +162,18 @@ namespace Gaming_Backlog_Manager
             game.Notes = notes_textbox.Text;
             CheckNowPlaying();
             game.NowPlaying = nowPlayingInput;
-            DataStorage ds = new DataStorage();
-            ds.GameO = game;
-            ds.SerializeGameAsync();
+            storeData();            
             this.Frame.Navigate(typeof(MainPage));
+        }
+
+        private async void storeData()
+        {
+            DataStorage ds = new DataStorage();
+            await ds.DeserializeGameAsync();
+            games = ds.Games;
+            games.Add(game);
+            ds.Games = games;
+            ds.SerializeGameAsync();
         }
 
         private void System_combobox_SelectedIndexChanged(object sender, SelectionChangedEventArgs e)

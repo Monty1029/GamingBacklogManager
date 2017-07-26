@@ -13,17 +13,17 @@ namespace Gaming_Backlog_Manager
 {
     class DataStorage
     {
-        private Game _gameo { get; set; }
-        private string textRead;
+        private string textRead = "";
+        private List<Game> _games { get; set; }
 
         public DataStorage()
         {
-
+            
         }
 
         public async void SerializeGameAsync()
         {
-            string json = JsonConvert.SerializeObject(_gameo);
+            string json = JsonConvert.SerializeObject(_games);
             StorageFolder localFolder = ApplicationData.Current.LocalFolder;
             StorageFile textFile = await localFolder.CreateFileAsync("backlog.json", CreationCollisionOption.ReplaceExisting);
             var stream = await textFile.OpenAsync(FileAccessMode.ReadWrite);
@@ -34,11 +34,12 @@ namespace Gaming_Backlog_Manager
                 {
                     textWriter.WriteString(json);
                     await textWriter.StoreAsync();
+                    await textStream.FlushAsync();
                 }
             }
         }
 
-        public async Task<string> DeserializeGameAsync()
+        public async Task<List<Game>> DeserializeGameAsync()
         {
             StorageFolder localFolder = ApplicationData.Current.LocalFolder;
             if (await localFolder.TryGetItemAsync("backlog.json") != null)
@@ -53,26 +54,27 @@ namespace Gaming_Backlog_Manager
                     {
                         uint numBytesLoaded = await textReader.LoadAsync((uint)size);
                         textRead = textReader.ReadString(numBytesLoaded);
+                        _games = JsonConvert.DeserializeObject<List<Game>>(textRead);
                     }
                 }
             }
-            return textRead;
+            return _games;
         }
 
         public string getTextRead()
         {
             return textRead;
         }
-
-        public Game GameO
+        
+        public List<Game> Games
         {
             get
             {
-                return this._gameo;
+                return this._games;
             }
             set
             {
-                this._gameo = value;
+                this._games = value;
             }
         }
     }
