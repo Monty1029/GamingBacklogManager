@@ -25,7 +25,7 @@ namespace Gaming_Backlog_Manager
         {
             string json = JsonConvert.SerializeObject(_gameo);
             StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-            StorageFile textFile = await localFolder.CreateFileAsync("backlogdata.txt", CreationCollisionOption.ReplaceExisting);
+            StorageFile textFile = await localFolder.CreateFileAsync("backlogdata.json", CreationCollisionOption.ReplaceExisting);
             var stream = await textFile.OpenAsync(FileAccessMode.ReadWrite);
             using (var textStream = stream.GetOutputStreamAt(0))
             {
@@ -41,7 +41,7 @@ namespace Gaming_Backlog_Manager
         public async void DeserializeGameAsync()
         {
             StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-            StorageFile textFile = await localFolder.GetFileAsync("backlogdata.txt");
+            StorageFile textFile = await localFolder.GetFileAsync("backlogdata.json");
             string json = await FileIO.ReadTextAsync(textFile);
             var stream = await textFile.OpenAsync(FileAccessMode.Read);
             ulong size = stream.Size;
