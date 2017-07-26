@@ -26,8 +26,13 @@ namespace Gaming_Backlog_Manager
         public MainPage()
         {
             this.InitializeComponent();
+            getSave();
+        }
+
+        private async void getSave()
+        {
             DataStorage ds = new DataStorage();
-            ds.DeserializeGameAsync();
+            await ds.DeserializeGameAsync();
             string json = ds.getTextRead();
         }
 

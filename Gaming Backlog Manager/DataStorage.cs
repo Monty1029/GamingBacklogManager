@@ -25,7 +25,7 @@ namespace Gaming_Backlog_Manager
         {
             string json = JsonConvert.SerializeObject(_gameo);
             StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-            StorageFile textFile = await localFolder.CreateFileAsync("backlogdata.json", CreationCollisionOption.ReplaceExisting);
+            StorageFile textFile = await localFolder.CreateFileAsync("backlog.json", CreationCollisionOption.ReplaceExisting);
             var stream = await textFile.OpenAsync(FileAccessMode.ReadWrite);
             using (var textStream = stream.GetOutputStreamAt(0))
             {
@@ -38,21 +38,25 @@ namespace Gaming_Backlog_Manager
             }
         }
 
-        public async void DeserializeGameAsync()
+        public async Task<string> DeserializeGameAsync()
         {
             StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-            StorageFile textFile = await localFolder.GetFileAsync("backlogdata.json");
-            string json = await FileIO.ReadTextAsync(textFile);
-            var stream = await textFile.OpenAsync(FileAccessMode.Read);
-            ulong size = stream.Size;
-            using (var textStream = stream.GetInputStreamAt(0))
+            if (await localFolder.TryGetItemAsync("backlog.json") != null)
             {
-                using (DataReader textReader = new DataReader(textStream))
+                StorageFile textFile = await localFolder.GetFileAsync("backlog.json");
+                string json = await FileIO.ReadTextAsync(textFile);
+                var stream = await textFile.OpenAsync(FileAccessMode.Read);
+                ulong size = stream.Size;
+                using (var textStream = stream.GetInputStreamAt(0))
                 {
-                    uint numBytesLoaded = await textReader.LoadAsync((uint)size);
-                    textRead = textReader.ReadString(numBytesLoaded);
+                    using (DataReader textReader = new DataReader(textStream))
+                    {
+                        uint numBytesLoaded = await textReader.LoadAsync((uint)size);
+                        textRead = textReader.ReadString(numBytesLoaded);
+                    }
                 }
             }
+            return textRead;
         }
 
         public string getTextRead()
