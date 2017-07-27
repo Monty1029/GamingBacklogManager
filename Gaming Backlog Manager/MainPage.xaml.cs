@@ -29,8 +29,6 @@ namespace Gaming_Backlog_Manager
         private ObservableCollection<Game> games = new ObservableCollection<Game>();
         private ObservableCollectionView<Game> view;
 
-
-
         public MainPage()
         {
             this.InitializeComponent();
@@ -44,6 +42,9 @@ namespace Gaming_Backlog_Manager
             DataStorage ds = new DataStorage();
             await ds.DeserializeGameAsync();
             games = ds.Games;
+            List<Game> sortedByGameTitle = new List<Game>(games);
+            sortedByGameTitle.Sort((x, y) => string.Compare(x.GameTitle, y.GameTitle));
+            games = new ObservableCollection<Game>(sortedByGameTitle);
         }
 
         private void Add_Game(object sender, RoutedEventArgs e)
