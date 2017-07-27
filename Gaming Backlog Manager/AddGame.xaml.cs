@@ -56,7 +56,7 @@ namespace Gaming_Backlog_Manager
         private bool nowPlayingInput = false;
 
         Game game = new Game();
-        List<Game> games = new List<Game>();
+        ObservableCollection<Game> games = new ObservableCollection<Game>();
 
         public AddGame()
         {   

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace Gaming_Backlog_Manager
     class DataStorage
     {
         private string textRead = "";
-        private List<Game> _games { get; set; }
+        private ObservableCollection<Game> _games { get; set; }
 
         public DataStorage()
         {
@@ -39,7 +40,7 @@ namespace Gaming_Backlog_Manager
             }
         }
 
-        public async Task<List<Game>> DeserializeGameAsync()
+        public async Task<ObservableCollection<Game>> DeserializeGameAsync()
         {
             StorageFolder localFolder = ApplicationData.Current.LocalFolder;
             if (await localFolder.TryGetItemAsync("backlog.json") != null)
@@ -54,7 +55,7 @@ namespace Gaming_Backlog_Manager
                     {
                         uint numBytesLoaded = await textReader.LoadAsync((uint)size);
                         textRead = textReader.ReadString(numBytesLoaded);
-                        _games = JsonConvert.DeserializeObject<List<Game>>(textRead);
+                        _games = JsonConvert.DeserializeObject<ObservableCollection<Game>>(textRead);
                     }
                 }
             }
@@ -66,7 +67,7 @@ namespace Gaming_Backlog_Manager
             return textRead;
         }
         
-        public List<Game> Games
+        public ObservableCollection<Game> Games
         {
             get
             {

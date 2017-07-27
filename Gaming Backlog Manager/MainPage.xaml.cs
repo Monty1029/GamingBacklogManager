@@ -13,6 +13,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using MyToolkit.Controls;
+using System.Collections.ObjectModel;
+using MyToolkit.Collections;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -23,11 +26,16 @@ namespace Gaming_Backlog_Manager
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        List<Game> games = new List<Game>();
+        private ObservableCollection<Game> games = new ObservableCollection<Game>();
+        private ObservableCollectionView<Game> view;
+
+
 
         public MainPage()
         {
             this.InitializeComponent();
+            view = new ObservableCollectionView<Game>(games);
+            view.Order = g => g.GameTitle;
             getSave();
         }
 

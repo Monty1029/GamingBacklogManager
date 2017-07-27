@@ -5,10 +5,26 @@
     xmlns:local="using:Gaming_Backlog_Manager"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:MyToolkit.Controls" 
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button Content="+" HorizontalAlignment="Right" Margin="0,50,50,0" VerticalAlignment="Top" Click="Add_Game"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Content="+" HorizontalAlignment="Right" Margin="0,50,50,0" VerticalAlignment="Top" Click="Add_Game"/>
+        <ScrollViewer Grid.Row="1">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
+                <ListView ItemsSource="{x:Bind games}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="local:Game">
+                            <TextBlock Text="{x:Bind GameTitle}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </ScrollViewer>
 
     </Grid>
 </Page>
