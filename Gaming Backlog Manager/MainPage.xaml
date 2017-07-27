@@ -13,7 +13,8 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Content="+" HorizontalAlignment="Right" Margin="0,50,50,0" VerticalAlignment="Top" Click="Add_Game"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Backlog" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
+        <Button Grid.Row="0" Content="+" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Top" Click="Add_Game"/>
         <ScrollViewer Grid.Row="1">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
                 <ListView ItemsSource="{x:Bind games}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
