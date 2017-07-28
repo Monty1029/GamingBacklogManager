@@ -42,14 +42,32 @@ namespace Gaming_Backlog_Manager
             DataStorage ds = new DataStorage();
             await ds.DeserializeGameAsync();
             games = ds.Games;
-            List<Game> sortedByGameTitle = new List<Game>(games);
-            sortedByGameTitle.Sort((x, y) => string.Compare(x.GameTitle, y.GameTitle));
-            games = new ObservableCollection<Game>(sortedByGameTitle);
+            if (games != null)
+            {
+                List<Game> sortedGames = new List<Game>(games);
+                sortedGames.Sort((x, y) => string.Compare(x.GameTitle, y.GameTitle));
+                games = new ObservableCollection<Game>(sortedGames);
+            }
+            
         }
 
         private void Add_Game(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(AddGame));
-        }        
+        }
+
+        private void Sort_GameTitle(object sender, RoutedEventArgs e)
+        {
+            List<Game> sortedGames = new List<Game>(games);
+            sortedGames.Sort((x, y) => string.Compare(x.GameTitle, y.GameTitle));
+            games = new ObservableCollection<Game>(sortedGames);
+        }
+
+        private void Sort_System(object sender, RoutedEventArgs e)
+        {
+            List<Game> sortedGames = new List<Game>(games);
+            sortedGames.Sort((x, y) => string.Compare(x.System, y.System));
+            games = new ObservableCollection<Game>(sortedGames);
+        }
     }
 }

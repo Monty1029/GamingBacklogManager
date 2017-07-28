@@ -19,7 +19,7 @@ namespace Gaming_Backlog_Manager
 
         public DataStorage()
         {
-            
+            _games = new ObservableCollection<Game>();
         }
 
         public async void SerializeGameAsync()

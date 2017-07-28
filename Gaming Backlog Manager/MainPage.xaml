@@ -13,18 +13,44 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Backlog" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
-        <Button Grid.Row="0" Content="+" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Top" Click="Add_Game"/>
-        <ScrollViewer Grid.Row="1">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
+        <TextBlock Grid.Row="0" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Backlog" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
+        <Button Grid.Row="0" Content="+" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Top" Click="Add_Game"/>        
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top">
+            <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Sort by:" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+            <Button Content="Game Title" HorizontalAlignment="Left" Margin="25,0,0,0" VerticalAlignment="Top" Click="Sort_GameTitle"/>
+            <Button Content="System" HorizontalAlignment="Left" Margin="25,0,0,0" VerticalAlignment="Top" Click="Sort_System"/>
+        </StackPanel>
+        <ScrollViewer Grid.Row="2" Margin="0,42,0,0">
+            <Grid>
                 <ListView ItemsSource="{x:Bind games}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:Game">
-                            <TextBlock Text="{x:Bind GameTitle}"/>
+                                <TextBlock Text="{x:Bind GameTitle}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-            </StackPanel>
+                <ListView ItemsSource="{x:Bind games}" HorizontalAlignment="Left" Margin="225,0,0,0" VerticalAlignment="Top" SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="local:Game">
+                            <TextBlock Text="{x:Bind System}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView ItemsSource="{x:Bind games}" HorizontalAlignment="Left" Margin="375,0,0,0" VerticalAlignment="Top" SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="local:Game">
+                            <TextBlock Text="{x:Bind Status}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView ItemsSource="{x:Bind games}" HorizontalAlignment="Left" Margin="500,0,0,0" VerticalAlignment="Top" SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="local:Game">
+                            <TextBlock Text="{x:Bind NowPlaying}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
         </ScrollViewer>
 
     </Grid>

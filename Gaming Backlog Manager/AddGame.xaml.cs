@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -63,8 +64,9 @@ namespace Gaming_Backlog_Manager
             this.InitializeComponent();
         }
 
-        private void ValidateEntries()
+        private bool ValidateEntries()
         {
+            int numberTrue = 0;
             if (game_title_textbox.Text.Equals("", StringComparison.Ordinal))
             {
                 game_title_textbox.BorderBrush = new SolidColorBrush(Colors.Red);
@@ -72,6 +74,7 @@ namespace Gaming_Backlog_Manager
             else
             {
                 game_title_textbox.BorderBrush = new SolidColorBrush(Colors.Silver);
+                numberTrue++;
             }
             if (system_combobox.SelectedItem == null)
             {
@@ -80,6 +83,7 @@ namespace Gaming_Backlog_Manager
             else
             {
                 system_combobox.BorderBrush = new SolidColorBrush(Colors.Silver);
+                numberTrue++;
             }
             if (region_combobox.SelectedItem == null)
             {
@@ -88,14 +92,16 @@ namespace Gaming_Backlog_Manager
             else
             {
                 region_combobox.BorderBrush = new SolidColorBrush(Colors.Silver);
+                numberTrue++;
             }
-            if (ownership_combobox.SelectedItem == null)
+            if (ownership_combobox.SelectedItem == null)                
             {
                 ownership_combobox.BorderBrush = new SolidColorBrush(Colors.Red);
             }
             else
             {
                 ownership_combobox.BorderBrush = new SolidColorBrush(Colors.Silver);
+                numberTrue++;
             }
             if (distribution_combobox.SelectedItem == null)
             {
@@ -104,6 +110,7 @@ namespace Gaming_Backlog_Manager
             else
             {
                 distribution_combobox.BorderBrush = new SolidColorBrush(Colors.Silver);
+                numberTrue++;
             }
             if (!(bool)status_unplayed.IsChecked && !(bool)status_unfinished.IsChecked && !(bool)status_beaten.IsChecked && !(bool)status_completed.IsChecked)
             {
@@ -112,7 +119,9 @@ namespace Gaming_Backlog_Manager
             else
             {
                 status_border.BorderBrush = new SolidColorBrush(Colors.White);
+                numberTrue++;
             }
+            return (numberTrue == 6);
         }
 
         private void CheckSelectedStatus()
@@ -145,35 +154,44 @@ namespace Gaming_Backlog_Manager
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-            ValidateEntries();            
-            game.GameTitle = game_title_textbox.Text;
-            game.System = systemText;
-            game.Region = regionText;
-            game.Ownership = ownershipText;
-            game.Distribution = distributionText;
-
-            CheckSelectedStatus();
-            game.Status = statusText;
-            if (!achievements1_textbox.Text.Equals("", StringComparison.Ordinal) && !achievements2_textbox.Text.Equals("", StringComparison.Ordinal))
+            if (ValidateEntries())
             {
-                game.Achievements1 = Int32.Parse(achievements1_textbox.Text);
-                game.Achievements2 = Int32.Parse(achievements2_textbox.Text);
-            }            
-            game.Notes = notes_textbox.Text;
-            CheckNowPlaying();
-            game.NowPlaying = nowPlayingInput;
-            storeData();            
-            this.Frame.Navigate(typeof(MainPage));
+                game.GameTitle = game_title_textbox.Text;
+                game.System = systemText;
+                game.Region = regionText;
+                game.Ownership = ownershipText;
+                game.Distribution = distributionText;
+
+                CheckSelectedStatus();
+                game.Status = statusText;
+                if (!achievements1_textbox.Text.Equals("", StringComparison.Ordinal) && !achievements2_textbox.Text.Equals("", StringComparison.Ordinal))
+                {
+                    game.Achievements1 = Int32.Parse(achievements1_textbox.Text);
+                    game.Achievements2 = Int32.Parse(achievements2_textbox.Text);
+                }
+                game.Notes = notes_textbox.Text;
+                CheckNowPlaying();
+                game.NowPlaying = nowPlayingInput;
+                storeData();
+                this.Frame.Navigate(typeof(MainPage));
+            }
         }
 
         private async void storeData()
         {
             DataStorage ds = new DataStorage();
             await ds.DeserializeGameAsync();
-            games = ds.Games;
-            games.Add(game);
-            ds.Games = games;
-            ds.SerializeGameAsync();
+            try
+            {
+                games = ds.Games;
+                games.Add(game);
+                ds.Games = games;
+                ds.SerializeGameAsync();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
         }
 
         private void System_combobox_SelectedIndexChanged(object sender, SelectionChangedEventArgs e)
