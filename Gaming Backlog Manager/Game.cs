@@ -18,7 +18,7 @@ namespace Gaming_Backlog_Manager
         private int _achievements1 { get; set; }
         private int _achievements2 { get; set; }
         private string _notes { get; set; }
-        private bool _nowPlaying { get; set; }
+        private string _nowPlaying { get; set; }
 
         public Game()
         {
@@ -133,7 +133,7 @@ namespace Gaming_Backlog_Manager
             }
         }
 
-        public bool NowPlaying
+        public string NowPlaying
         {
             get
             {

@@ -54,7 +54,7 @@ namespace Gaming_Backlog_Manager
         private string distributionText;
 
         private string statusText;
-        private bool nowPlayingInput = false;
+        private string nowPlayingInput = "No";
 
         Game game = new Game();
         ObservableCollection<Game> games = new ObservableCollection<Game>();
@@ -148,7 +148,7 @@ namespace Gaming_Backlog_Manager
         {
             if ((bool)now_playing_checkbox.IsChecked)
             {
-                nowPlayingInput = true;
+                nowPlayingInput = "Yes";
             }
         }
 
