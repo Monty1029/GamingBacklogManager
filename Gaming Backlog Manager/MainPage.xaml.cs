@@ -26,14 +26,12 @@ namespace Gaming_Backlog_Manager
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private ObservableCollection<Game> games = new ObservableCollection<Game>();
-        private ObservableCollectionView<Game> view;
+        private ObservableCollection<Game> games;
+        private List<Game> sortedGames;
 
         public MainPage()
         {
             this.InitializeComponent();
-            view = new ObservableCollectionView<Game>(games);
-            view.Order = g => g.GameTitle;
             getSave();
         }
 
@@ -44,7 +42,7 @@ namespace Gaming_Backlog_Manager
             games = ds.Games;
             if (games != null)
             {
-                List<Game> sortedGames = new List<Game>(games);
+                sortedGames = new List<Game>(games);
                 sortedGames.Sort((x, y) => string.Compare(x.GameTitle, y.GameTitle));
                 games = new ObservableCollection<Game>(sortedGames);
             }
@@ -58,16 +56,54 @@ namespace Gaming_Backlog_Manager
 
         private void Sort_GameTitle(object sender, RoutedEventArgs e)
         {
-            List<Game> sortedGames = new List<Game>(games);
-            sortedGames.Sort((x, y) => string.Compare(x.GameTitle, y.GameTitle));
-            games = new ObservableCollection<Game>(sortedGames);
+            if (games != null)
+            {
+                games.Clear();
+                sortedGames.Sort((x, y) => string.Compare(x.GameTitle, y.GameTitle));
+                foreach (Game g in sortedGames)
+                {
+                    games.Add(g);
+                }
+            }
         }
 
         private void Sort_System(object sender, RoutedEventArgs e)
         {
-            List<Game> sortedGames = new List<Game>(games);
-            sortedGames.Sort((x, y) => string.Compare(x.System, y.System));
-            games = new ObservableCollection<Game>(sortedGames);
+            if (games != null)
+            {
+                games.Clear();
+                sortedGames.Sort((x, y) => string.Compare(x.System, y.System));
+                foreach (Game g in sortedGames)
+                {
+                    games.Add(g);
+                }
+            }
+        }
+
+        private void Sort_Status(object sender, RoutedEventArgs e)
+        {
+            if (games != null)
+            {
+                games.Clear();
+                sortedGames.Sort((x, y) => string.Compare(x.Status, y.Status));
+                foreach (Game g in sortedGames)
+                {
+                    games.Add(g);
+                }
+            }
+        }
+
+        private void Sort_NowPlaying(object sender, RoutedEventArgs e)
+        {
+            if (games != null)
+            {
+                games.Clear();
+                sortedGames.Sort((x, y) => string.Compare(x.NowPlaying, y.NowPlaying));
+                foreach (Game g in sortedGames)
+                {
+                    games.Add(g);
+                }
+            }
         }
     }
 }

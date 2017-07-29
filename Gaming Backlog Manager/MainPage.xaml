@@ -19,6 +19,8 @@
             <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Sort by:" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
             <Button Content="Game Title" HorizontalAlignment="Left" Margin="25,0,0,0" VerticalAlignment="Top" Click="Sort_GameTitle"/>
             <Button Content="System" HorizontalAlignment="Left" Margin="25,0,0,0" VerticalAlignment="Top" Click="Sort_System"/>
+            <Button Content="Status" HorizontalAlignment="Left" Margin="25,0,0,0" VerticalAlignment="Top" Click="Sort_Status"/>
+            <Button Content="Now Playing" HorizontalAlignment="Left" Margin="25,0,0,0" VerticalAlignment="Top" Click="Sort_NowPlaying"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,38,0,0" VerticalAlignment="Top">
             <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Game Title" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
@@ -28,31 +30,31 @@
         </StackPanel>
         <ScrollViewer Grid.Row="3" Margin="0,65,0,0">
             <Grid>
-                <ListView ItemsSource="{x:Bind games}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
+                <ListView ItemsSource="{x:Bind games, Mode=OneWay}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:Game">
-                                <TextBlock Text="{x:Bind GameTitle}"/>
+                                <TextBlock Text="{x:Bind GameTitle, Mode=OneWay}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <ListView ItemsSource="{x:Bind games}" HorizontalAlignment="Left" Margin="225,0,0,0" VerticalAlignment="Top" SelectionMode="None">
+                <ListView ItemsSource="{x:Bind games, Mode=OneWay}" HorizontalAlignment="Left" Margin="225,0,0,0" VerticalAlignment="Top" SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:Game">
-                            <TextBlock Text="{x:Bind System}"/>
+                            <TextBlock Text="{x:Bind System, Mode=OneWay}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <ListView ItemsSource="{x:Bind games}" HorizontalAlignment="Left" Margin="375,0,0,0" VerticalAlignment="Top" SelectionMode="None">
+                <ListView ItemsSource="{x:Bind games, Mode=OneWay}" HorizontalAlignment="Left" Margin="375,0,0,0" VerticalAlignment="Top" SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:Game">
-                            <TextBlock Text="{x:Bind Status}"/>
+                            <TextBlock Text="{x:Bind Status, Mode=OneWay}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <ListView ItemsSource="{x:Bind games}" HorizontalAlignment="Left" Margin="500,0,0,0" VerticalAlignment="Top" SelectionMode="None">
+                <ListView ItemsSource="{x:Bind games, Mode=OneWay}" HorizontalAlignment="Left" Margin="500,0,0,0" VerticalAlignment="Top" SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:Game">
-                            <TextBlock Text="{x:Bind NowPlaying}"/>
+                            <TextBlock Text="{x:Bind NowPlaying, Mode=OneWay}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
