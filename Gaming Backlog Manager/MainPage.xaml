@@ -16,19 +16,12 @@
         <TextBlock Grid.Row="0" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Backlog" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
         <Button Grid.Row="0" Content="+" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Top" Click="Add_Game"/>        
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top">
-            <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Sort by:" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-            <Button Content="Game Title" HorizontalAlignment="Left" Margin="25,0,0,0" VerticalAlignment="Top" Click="Sort_GameTitle"/>
-            <Button Content="System" HorizontalAlignment="Left" Margin="25,0,0,0" VerticalAlignment="Top" Click="Sort_System"/>
-            <Button Content="Status" HorizontalAlignment="Left" Margin="25,0,0,0" VerticalAlignment="Top" Click="Sort_Status"/>
-            <Button Content="Now Playing" HorizontalAlignment="Left" Margin="25,0,0,0" VerticalAlignment="Top" Click="Sort_NowPlaying"/>
+            <Button Content="Game Title" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Click="Sort_GameTitle" FontWeight="Bold" Background="White"/>
+            <Button Content="System" HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Click="Sort_System" FontWeight="Bold" Background="White"/>
+            <Button Content="Status" HorizontalAlignment="Left" Margin="80,0,0,0" VerticalAlignment="Top" Click="Sort_Status" FontWeight="Bold" Background="White"/>
+            <Button Content="Now Playing" HorizontalAlignment="Left" Margin="60,0,0,0" VerticalAlignment="Top" Click="Sort_NowPlaying" FontWeight="Bold" Background="White"/>
         </StackPanel>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,38,0,0" VerticalAlignment="Top">
-            <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Game Title" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-            <TextBlock HorizontalAlignment="Left" Margin="135,0,0,0" TextWrapping="Wrap" Text="System" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-            <TextBlock HorizontalAlignment="Left" Margin="89,0,0,0" TextWrapping="Wrap" Text="Status" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-            <TextBlock HorizontalAlignment="Left" Margin="72,0,0,0" TextWrapping="Wrap" Text="Now Playing" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        </StackPanel>
-        <ScrollViewer Grid.Row="3" Margin="0,65,0,0">
+        <ScrollViewer Grid.Row="2" Margin="0,42,0,0">
             <Grid>
                 <ListView ItemsSource="{x:Bind games, Mode=OneWay}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
                     <ListView.ItemTemplate>
