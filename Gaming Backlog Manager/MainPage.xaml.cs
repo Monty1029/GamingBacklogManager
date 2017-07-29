@@ -30,9 +30,9 @@ namespace Gaming_Backlog_Manager
         private List<Game> sortedGames;
 
         public MainPage()
-        {
-            this.InitializeComponent();
+        {            
             getSave();
+            this.InitializeComponent();
         }
 
         private async void getSave()
@@ -47,12 +47,7 @@ namespace Gaming_Backlog_Manager
                 games = new ObservableCollection<Game>(sortedGames);
             }
             
-        }
-
-        private void Add_Game(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(AddGame));
-        }
+        }        
 
         private void Sort_GameTitle(object sender, RoutedEventArgs e)
         {
@@ -104,6 +99,16 @@ namespace Gaming_Backlog_Manager
                     games.Add(g);
                 }
             }
+        }
+
+        private void Add_Game(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AddGame));
+        }
+
+        private void Wishlist_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Wishlist));
         }
     }
 }

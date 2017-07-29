@@ -172,12 +172,12 @@ namespace Gaming_Backlog_Manager
                 game.Notes = notes_textbox.Text;
                 CheckNowPlaying();
                 game.NowPlaying = nowPlayingInput;
-                storeData();
+                StoreData();
                 this.Frame.Navigate(typeof(MainPage));
             }
         }
 
-        private async void storeData()
+        private async void StoreData()
         {
             DataStorage ds = new DataStorage();
             await ds.DeserializeGameAsync();
@@ -240,6 +240,11 @@ namespace Gaming_Backlog_Manager
             {
                 distributionText = (string)distribution_combobox.SelectedItem;
             }
+        }
+
+        private void Go_Back(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
         }
     }
 }
