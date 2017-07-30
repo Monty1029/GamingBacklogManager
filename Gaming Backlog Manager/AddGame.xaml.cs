@@ -163,6 +163,9 @@ namespace Gaming_Backlog_Manager
 
         private void CreateGame()
         {
+            Random rand = new Random();
+            int id = rand.Next(1, 1000000);
+            game.ID = id;
             game.GameTitle = game_title_textbox.Text;
             game.System = systemText;
             game.Region = regionText;

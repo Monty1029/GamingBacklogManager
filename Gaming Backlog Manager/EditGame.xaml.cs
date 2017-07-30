@@ -202,6 +202,7 @@ namespace Gaming_Backlog_Manager
 
         private void CreateGame()
         {
+            game.ID = oldGame.ID;
             game.GameTitle = game_title_textbox.Text;
             game.System = systemText;
             game.Region = regionText;
@@ -230,7 +231,7 @@ namespace Gaming_Backlog_Manager
                 games = ds.Games;
                 foreach (Game g in games)
                 {
-                    if (g.GameTitle.Equals(game.GameTitle, StringComparison.Ordinal))
+                    if (g.ID == game.ID)
                     {
                         games.Remove(g);
                         break;
