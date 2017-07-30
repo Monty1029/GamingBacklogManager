@@ -156,25 +156,30 @@ namespace Gaming_Backlog_Manager
         {
             if (ValidateEntries())
             {
-                game.GameTitle = game_title_textbox.Text;
-                game.System = systemText;
-                game.Region = regionText;
-                game.Ownership = ownershipText;
-                game.Distribution = distributionText;
-
-                CheckSelectedStatus();
-                game.Status = statusText;
-                if (!achievements1_textbox.Text.Equals("", StringComparison.Ordinal) && !achievements2_textbox.Text.Equals("", StringComparison.Ordinal))
-                {
-                    game.Achievements1 = Int32.Parse(achievements1_textbox.Text);
-                    game.Achievements2 = Int32.Parse(achievements2_textbox.Text);
-                }
-                game.Notes = notes_textbox.Text;
-                CheckNowPlaying();
-                game.NowPlaying = nowPlayingInput;
-                StoreData();
+                CreateGame();
                 this.Frame.Navigate(typeof(AddGame));
             }
+        }
+
+        private void CreateGame()
+        {
+            game.GameTitle = game_title_textbox.Text;
+            game.System = systemText;
+            game.Region = regionText;
+            game.Ownership = ownershipText;
+            game.Distribution = distributionText;
+
+            CheckSelectedStatus();
+            game.Status = statusText;
+            if (!achievements1_textbox.Text.Equals("", StringComparison.Ordinal) && !achievements2_textbox.Text.Equals("", StringComparison.Ordinal))
+            {
+                game.Achievements1 = Int32.Parse(achievements1_textbox.Text);
+                game.Achievements2 = Int32.Parse(achievements2_textbox.Text);
+            }
+            game.Notes = notes_textbox.Text;
+            CheckNowPlaying();
+            game.NowPlaying = nowPlayingInput;
+            StoreData();
         }
 
         private async void StoreData()
@@ -251,23 +256,7 @@ namespace Gaming_Backlog_Manager
         {
             if (ValidateEntries())
             {
-                game.GameTitle = game_title_textbox.Text;
-                game.System = systemText;
-                game.Region = regionText;
-                game.Ownership = ownershipText;
-                game.Distribution = distributionText;
-
-                CheckSelectedStatus();
-                game.Status = statusText;
-                if (!achievements1_textbox.Text.Equals("", StringComparison.Ordinal) && !achievements2_textbox.Text.Equals("", StringComparison.Ordinal))
-                {
-                    game.Achievements1 = Int32.Parse(achievements1_textbox.Text);
-                    game.Achievements2 = Int32.Parse(achievements2_textbox.Text);
-                }
-                game.Notes = notes_textbox.Text;
-                CheckNowPlaying();
-                game.NowPlaying = nowPlayingInput;
-                StoreData();
+                CreateGame();
                 this.Frame.Navigate(typeof(MainPage));
             }
         }
