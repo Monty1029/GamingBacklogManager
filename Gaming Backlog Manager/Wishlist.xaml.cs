@@ -153,7 +153,7 @@ namespace Gaming_Backlog_Manager
             game.System = systemText;
             if (datePicker.Date != null)
             {
-                game.ReleaseDate = datePicker.Date.ToString();
+                game.ReleaseDate = datePicker.Date.Value.Date.ToString("d");
             }            
             StoreData();
         }
