@@ -31,11 +31,11 @@ namespace Gaming_Backlog_Manager
 
         public MainPage()
         {            
-            getSave();
+            GetSave();
             this.InitializeComponent();
         }
 
-        private async void getSave()
+        private async void GetSave()
         {
             DataStorage ds = new DataStorage();
             await ds.DeserializeGameAsync();

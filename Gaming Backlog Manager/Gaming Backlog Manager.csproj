@@ -107,6 +107,7 @@
     <Compile Include="Wishlist.xaml.cs">
       <DependentUpon>Wishlist.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WishlistGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
