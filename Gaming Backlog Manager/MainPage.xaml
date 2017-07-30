@@ -24,7 +24,7 @@
         </StackPanel>
         <ScrollViewer Grid.Row="2" Margin="0,42,0,0">
             <Grid>
-                <ListView ItemsSource="{x:Bind games, Mode=OneWay}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
+                <ListView ItemsSource="{x:Bind games, Mode=OneWay}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" IsItemClickEnabled="True" SelectionChanged="MySelectionChanged">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:Game">
                                 <TextBlock Text="{x:Bind GameTitle, Mode=OneWay}"/>

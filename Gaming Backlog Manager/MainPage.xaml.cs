@@ -28,6 +28,7 @@ namespace Gaming_Backlog_Manager
     {
         private ObservableCollection<Game> games;
         private List<Game> sortedGames;
+        private Game gameClicked = new Game();
 
         public MainPage()
         {            
@@ -109,6 +110,12 @@ namespace Gaming_Backlog_Manager
         private void Wishlist_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Wishlist));
+        }
+
+        private void MySelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            gameClicked = (Game)e.AddedItems[0];
+            this.Frame.Navigate(typeof(EditGame), gameClicked);
         }
     }
 }

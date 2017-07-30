@@ -1,0 +1,50 @@
+﻿<Page
+    x:Class="Gaming_Backlog_Manager.EditGame"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Gaming_Backlog_Manager"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button Content="⇦" HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="40" Click="Go_Back"/>
+        <ScrollViewer Margin="32,32,0,0">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Height="900" Margin="0,0,0,0" VerticalAlignment="Top" Width="500">
+                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Game Information" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Game Title" VerticalAlignment="Top"/>
+                <TextBox x:Name="game_title_textbox" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="500"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="System" VerticalAlignment="Top"/>
+                <ComboBox x:Name="system_combobox" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind systems}" PlaceholderText="Select..." SelectionChanged="System_combobox_SelectedIndexChanged"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Region" VerticalAlignment="Top"/>
+                <ComboBox x:Name="region_combobox" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind regions}" PlaceholderText="Select..." SelectionChanged="Region_combobox_SelectedIndexChanged"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Ownership" VerticalAlignment="Top"/>
+                <ComboBox x:Name="ownership_combobox" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind ownership}" PlaceholderText="Select..." SelectionChanged="Ownership_combobox_SelectedIndexChanged"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Distribution" VerticalAlignment="Top"/>
+                <ComboBox x:Name="distribution_combobox" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind distribution}" PlaceholderText="Select..." SelectionChanged="Distribution_combobox_SelectedIndexChanged"/>
+
+                <TextBlock HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" Text="Progress" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Status" VerticalAlignment="Top"/>
+                <Border x:Name="status_border" Padding="5,0,0,0"  BorderThickness="2,2,2,2" BorderBrush="White">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="32" Margin="0,0,0,0" VerticalAlignment="Top" Width="500">
+                        <RadioButton x:Name="status_unplayed" Content="Unplayed" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" GroupName="Status"/>
+                        <RadioButton x:Name="status_unfinished" Content="Unfinished" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" GroupName="Status"/>
+                        <RadioButton x:Name="status_beaten" Content="Beaten" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" GroupName="Status"/>
+                        <RadioButton x:Name="status_completed" Content="Completed" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" GroupName="Status"/>
+                    </StackPanel>
+                </Border>
+                <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Achievements / Trophies" VerticalAlignment="Top"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="32" Margin="0,0,0,0" VerticalAlignment="Top" Width="250">
+                    <TextBox x:Name="achievements1_textbox" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="40"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text=" out of" VerticalAlignment="Top"/>
+                    <TextBox x:Name="achievements2_textbox" HorizontalAlignment="Left" Margin="5,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="40"/>
+                </StackPanel>
+                <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Notes" VerticalAlignment="Top"/>
+                <TextBox x:Name="notes_textbox" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="500" MinHeight="32"/>
+                <CheckBox x:Name="now_playing_checkbox" Content="Now Playing" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,25,0,0"/>
+                <Button x:Name="submit_button" Content="Save Changes" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,0" Click="Submit_Click"/>                
+            </StackPanel>
+        </ScrollViewer>
+
+    </Grid>
+</Page>
