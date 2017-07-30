@@ -42,7 +42,8 @@
                 <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Notes" VerticalAlignment="Top"/>
                 <TextBox x:Name="notes_textbox" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="500" MinHeight="32"/>
                 <CheckBox x:Name="now_playing_checkbox" Content="Now Playing" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,25,0,0"/>
-                <Button x:Name="submit_button" Content="Add Game" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,25,0,0" Click="Submit_Click"/>                
+                <Button x:Name="submit_button" Content="Add Game" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="-120,25,0,0" Click="Submit_Click"/>
+                <Button x:Name="submit_button_menu" Content="Add Game &amp;&#13;Back to Menu" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="110,-42,0,0" Click="SubmitMenu_Click"/>
             </StackPanel>
         </ScrollViewer>
 
