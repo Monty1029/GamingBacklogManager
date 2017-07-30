@@ -70,12 +70,16 @@ namespace Gaming_Backlog_Manager
             base.OnNavigatedTo(e);
             oldGame = (Game)e.Parameter;
             game_title_textbox.Text = oldGame.GameTitle;
+            system_combobox.ItemsSource = systems;
             system_combobox.SelectedItem = oldGame.System;
             system_combobox.PlaceholderText = oldGame.System;
+            region_combobox.ItemsSource = regions;
             region_combobox.SelectedItem = oldGame.Region;
             region_combobox.PlaceholderText = oldGame.Region;
+            ownership_combobox.ItemsSource = ownership;
             ownership_combobox.SelectedItem = oldGame.Ownership;
             ownership_combobox.PlaceholderText = oldGame.Ownership;
+            distribution_combobox.ItemsSource = distribution;
             distribution_combobox.SelectedItem = oldGame.Distribution;
             distribution_combobox.PlaceholderText = oldGame.Distribution;
             if (oldGame.Status.Equals("Unplayed", StringComparison.Ordinal))
