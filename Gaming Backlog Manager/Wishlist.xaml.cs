@@ -57,7 +57,10 @@ namespace Gaming_Backlog_Manager
                 sortedGames.Sort((x, y) => string.Compare(x.GameTitle, y.GameTitle));
                 games = new ObservableCollection<WishlistGame>(sortedGames);
             }
-
+            foreach (WishlistGame g in games)
+            {
+                Debug.WriteLine(g.GameTitle);
+            }
         }
 
         private void System_combobox_SelectedIndexChanged(object sender, SelectionChangedEventArgs e)

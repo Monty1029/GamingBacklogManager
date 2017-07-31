@@ -150,5 +150,36 @@ namespace Gaming_Backlog_Manager
                 this.Frame.Navigate(typeof(Wishlist));
             }
         }
+
+        private void Remove_Click(object sender, RoutedEventArgs e)
+        {
+            game.ID = oldGame.ID;
+            RemoveGame();
+            this.Frame.Navigate(typeof(Wishlist));
+        }
+
+        private async void RemoveGame()
+        {
+            DataStorage ds = new DataStorage();
+            await ds.DeserializeWishlistGameAsync();
+            try
+            {
+                games = ds.WishlistGames;
+                foreach (WishlistGame g in games)
+                {
+                    if (g.ID == game.ID)
+                    {
+                        games.Remove(g);
+                        break;
+                    }
+                }
+                ds.WishlistGames = games;
+                ds.SerializeWishlistGameAsync();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+        }
     }
 }

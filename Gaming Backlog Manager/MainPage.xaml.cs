@@ -34,7 +34,7 @@ namespace Gaming_Backlog_Manager
         {            
             GetSave();
             this.InitializeComponent();
-        }
+        }        
 
         private async void GetSave()
         {
@@ -47,7 +47,10 @@ namespace Gaming_Backlog_Manager
                 sortedGames.Sort((x, y) => string.Compare(x.GameTitle, y.GameTitle));
                 games = new ObservableCollection<Game>(sortedGames);
             }
-            
+            foreach (Game g in games)
+            {
+                Debug.WriteLine(g.GameTitle);
+            }
         }        
 
         private void Sort_GameTitle(object sender, RoutedEventArgs e)

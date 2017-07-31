@@ -312,5 +312,36 @@ namespace Gaming_Backlog_Manager
                 this.Frame.Navigate(typeof(MainPage));
             }
         }
+
+        private void Remove_Click(object sender, RoutedEventArgs e)
+        {
+            game.ID = oldGame.ID;
+            RemoveGame();
+            this.Frame.Navigate(typeof(MainPage));
+        }
+
+        private async void RemoveGame()
+        {
+            DataStorage ds = new DataStorage();
+            await ds.DeserializeGameAsync();
+            try
+            {
+                games = ds.Games;
+                foreach (Game g in games)
+                {
+                    if (g.ID == game.ID)
+                    {
+                        games.Remove(g);
+                        break;
+                    }
+                }
+                ds.Games = games;
+                ds.SerializeGameAsync();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+        }
     }
 }
