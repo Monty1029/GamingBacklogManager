@@ -24,7 +24,7 @@
         <Button Content="Release Date" HorizontalAlignment="Left" Margin="590,125,0,0" VerticalAlignment="Top" Click="Sort_ReleaseDate" FontWeight="Bold" Background="White"/>
         <ScrollViewer Grid.Row="2" Margin="0,155,0,0">
             <Grid>
-                <ListView ItemsSource="{x:Bind games, Mode=OneWay}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
+                <ListView ItemsSource="{x:Bind games, Mode=OneWay}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" SelectionChanged="MySelectionChanged">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:WishlistGame">
                             <TextBlock Text="{x:Bind GameTitle, Mode=OneWay}"/>

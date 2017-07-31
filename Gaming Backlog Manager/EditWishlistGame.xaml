@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="Gaming_Backlog_Manager.EditWishlistGame"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Gaming_Backlog_Manager"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button Content="⇦" HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="40" Click="Go_Back"/>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
+            <TextBlock Grid.Row="0" HorizontalAlignment="Left" Margin="10,35,0,0" TextWrapping="Wrap" Text="Wishlist" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
+            <TextBlock Grid.Row="1" HorizontalAlignment="Left" Margin="10,25,0,0" TextWrapping="Wrap" Text="Game Title" VerticalAlignment="Top"/>
+            <TextBox Grid.Row="1" x:Name="game_title_textbox" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="500"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,25,0,0" TextWrapping="Wrap" Text="System" VerticalAlignment="Top"/>
+            <ComboBox x:Name="system_combobox" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind systems}" PlaceholderText="Select..." SelectionChanged="System_combobox_SelectedIndexChanged"/>
+            <TextBlock Grid.Row="1" HorizontalAlignment="Left" Margin="10,25,0,0" TextWrapping="Wrap" Text="Release Date" VerticalAlignment="Top"/>
+            <CalendarDatePicker x:Name="datePicker" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,0,0,0"/>
+            <Button Grid.Row="1" Content="Save Changes" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="32" Margin="0,25,0,0" Click="SubmitMenu_Click" Width="112"/>
+        </StackPanel>
+
+    </Grid>
+</Page>

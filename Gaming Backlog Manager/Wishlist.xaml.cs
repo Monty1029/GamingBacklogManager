@@ -33,6 +33,7 @@ namespace Gaming_Backlog_Manager
                 "Sega Saturn", "Super Nintendo", "Turbo Grafx-16", "Wii U", "Wii", "Windows Mobile", "WonderSwan Color", "WonderSwan", "Xbox", "Xbox 360", "Xbox One"
             };
 
+        private WishlistGame gameClicked = new WishlistGame();
         WishlistGame game = new WishlistGame();
         private ObservableCollection<WishlistGame> games;
         private List<WishlistGame> sortedGames;
@@ -149,6 +150,9 @@ namespace Gaming_Backlog_Manager
 
         private void CreateGame()
         {
+            Random rand = new Random();
+            int id = rand.Next(1, 1000000);
+            game.ID = id;
             game.GameTitle = game_title_textbox.Text;
             game.System = systemText;
             if (datePicker.Date != null)
@@ -177,6 +181,12 @@ namespace Gaming_Backlog_Manager
             {
                 Debug.WriteLine(e.Message);
             }
+        }
+
+        private void MySelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            gameClicked = (WishlistGame)e.AddedItems[0];
+            this.Frame.Navigate(typeof(EditWishlistGame), gameClicked);
         }
     }
 }

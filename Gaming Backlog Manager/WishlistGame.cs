@@ -12,6 +12,8 @@ namespace Gaming_Backlog_Manager
         private string _system { get; set; }
         private string _releaseDate { get; set; }
 
+        private int _id { get; set; }
+
         public WishlistGame()
         {
 
@@ -50,6 +52,18 @@ namespace Gaming_Backlog_Manager
             set
             {
                 this._releaseDate = value;
+            }
+        }
+
+        public int ID
+        {
+            get
+            {
+                return this._id;
+            }
+            set
+            {
+                this._id = value;
             }
         }
     }

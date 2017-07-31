@@ -102,6 +102,9 @@
     <Compile Include="EditGame.xaml.cs">
       <DependentUpon>EditGame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditWishlistGame.xaml.cs">
+      <DependentUpon>EditWishlistGame.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Game.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -138,6 +141,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditWishlistGame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
