@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Navigation;
 using MyToolkit.Controls;
 using System.Collections.ObjectModel;
 using MyToolkit.Collections;
+using System.Threading.Tasks;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -27,30 +28,37 @@ namespace Gaming_Backlog_Manager
     public sealed partial class MainPage : Page
     {
         private ObservableCollection<Game> games;
+        private ObservableCollection<Game> gamesTemp;
         private List<Game> sortedGames;
         private Game gameClicked = new Game();
 
         public MainPage()
-        {            
-            GetSave();
-            this.InitializeComponent();
-        }        
-
-        private async void GetSave()
         {
+            games = new ObservableCollection<Game>();
+            this.InitializeComponent();
+        }
+
+        async protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            int gs = await GetSave();
+        }
+
+        private async Task<int> GetSave()
+        {            
             DataStorage ds = new DataStorage();
             await ds.DeserializeGameAsync();
-            games = ds.Games;
+            gamesTemp = ds.Games;
             if (games != null)
             {
-                sortedGames = new List<Game>(games);
+                sortedGames = new List<Game>(gamesTemp);
                 sortedGames.Sort((x, y) => string.Compare(x.GameTitle, y.GameTitle));
-                games = new ObservableCollection<Game>(sortedGames);
+                games.Clear();
+                foreach (Game g in sortedGames)
+                {
+                    games.Add(g);
+                }
             }
-            foreach (Game g in games)
-            {
-                Debug.WriteLine(g.GameTitle);
-            }
+            return 0;
         }        
 
         private void Sort_GameTitle(object sender, RoutedEventArgs e)
