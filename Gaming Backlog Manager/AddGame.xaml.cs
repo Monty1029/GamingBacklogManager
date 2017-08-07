@@ -131,7 +131,7 @@ namespace Gaming_Backlog_Manager
             }
             else
             {
-                status_border.BorderBrush = new SolidColorBrush(Colors.White);
+                status_border.BorderBrush = new SolidColorBrush(Colors.AliceBlue);
                 numberTrue++;
             }
             return (numberTrue == 6);
