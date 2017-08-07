@@ -14,8 +14,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Backlog" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
-        <Button Grid.Row="0" Content="+" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Top" Click="Add_Game"/>
-        <Button Grid.Row="0" Content="Wishlist" HorizontalAlignment="Right" Margin="0,0,50,0" VerticalAlignment="Top" Click="Wishlist_Click"/>
+        <Button Grid.Row="0" Content="+" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Top" Click="Add_Game" Background="PowderBlue"/>
+        <Button Grid.Row="0" Content="Wishlist" HorizontalAlignment="Right" Margin="0,0,50,0" VerticalAlignment="Top" Click="Wishlist_Click" Background="PowderBlue"/>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top">
             <Button Content="Game Title" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Click="Sort_GameTitle" FontWeight="Bold" Background="AliceBlue"/>
             <Button Content="System" HorizontalAlignment="Left" Margin="280,0,0,0" VerticalAlignment="Top" Click="Sort_System" FontWeight="Bold" Background="AliceBlue"/>

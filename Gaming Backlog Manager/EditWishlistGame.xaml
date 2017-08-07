@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Grid Background="AliceBlue">
-        <Button Content="⇦" HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="40" Click="Go_Back"/>
+        <Button Content="⇦" HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="40" Click="Go_Back" Background="PowderBlue"/>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top">
             <TextBlock Grid.Row="1" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" Text="Game Title" VerticalAlignment="Top"/>
             <TextBox Grid.Row="1" x:Name="game_title_textbox" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="500"/>
@@ -16,8 +16,8 @@
             <ComboBox x:Name="system_combobox" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind systems}" PlaceholderText="Select..." SelectionChanged="System_combobox_SelectedIndexChanged"/>
             <TextBlock Grid.Row="1" HorizontalAlignment="Left" Margin="10,25,0,0" TextWrapping="Wrap" Text="Release Date" VerticalAlignment="Top"/>
             <CalendarDatePicker x:Name="datePicker" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,0,0,0"/>
-            <Button Grid.Row="1" Content="Save Changes" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="32" Margin="0,25,0,0" Click="SubmitMenu_Click" Width="120"/>
-            <Button Grid.Row="1" Content="Remove Game" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="32" Margin="0,10,0,0" Click="Remove_Click" Width="120"/>
+            <Button Grid.Row="1" Content="Save Changes" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="32" Margin="0,25,0,0" Click="SubmitMenu_Click" Width="120" Background="PowderBlue"/>
+            <Button Grid.Row="1" Content="Remove Game" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="32" Margin="0,10,0,0" Click="Remove_Click" Width="120" Background="PowderBlue"/>
         </StackPanel>
 
     </Grid>

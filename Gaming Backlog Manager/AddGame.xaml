@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Grid Background="AliceBlue">
-        <Button Content="⇦" HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="40" Click="Go_Back"/>
+        <Button Content="⇦" HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="40" Click="Go_Back" Background="PowderBlue"/>
         <ScrollViewer Margin="32,32,0,0">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="500">                
                 <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Game Information" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
@@ -51,8 +51,8 @@
                 <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Rating (out of 5)" VerticalAlignment="Top"/>
                 <ComboBox x:Name="rating_combobox" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind rating}" PlaceholderText="Select..." SelectionChanged="Rating_combobox_SelectedIndexChanged"/>
 
-                <Button x:Name="submit_button" Content="Add Game" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="-120,25,0,0" Click="Submit_Click"/>
-                <Button x:Name="submit_button_menu" Content="Add Game &amp;&#13;Back to Menu" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="110,-42,0,0" Click="SubmitMenu_Click"/>
+                <Button x:Name="submit_button" Content="Add Game" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="-120,25,0,0" Click="Submit_Click" Background="PowderBlue"/>
+                <Button x:Name="submit_button_menu" Content="Add Game &amp;&#13;Back to Menu" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="110,-42,0,0" Click="SubmitMenu_Click" Background="PowderBlue"/>
             </StackPanel>
         </ScrollViewer>
 
