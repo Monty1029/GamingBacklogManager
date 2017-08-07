@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
@@ -34,33 +35,40 @@ namespace Gaming_Backlog_Manager
             };
 
         private WishlistGame gameClicked = new WishlistGame();
-        WishlistGame game = new WishlistGame();
+        private WishlistGame game = new WishlistGame();
         private ObservableCollection<WishlistGame> games;
+        private ObservableCollection<WishlistGame> gamesTemp;
         private List<WishlistGame> sortedGames;
 
         private string systemText;
 
         public Wishlist()
         {
-            GetSave();
+            games = new ObservableCollection<WishlistGame>();
             this.InitializeComponent();
         }
 
-        private async void GetSave()
+        async protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            int gs = await GetSave();
+        }
+
+        private async Task<int> GetSave()
         {
             DataStorage ds = new DataStorage();
             await ds.DeserializeWishlistGameAsync();
-            games = ds.WishlistGames;
+            gamesTemp = ds.WishlistGames;
             if (games != null)
             {
-                sortedGames = new List<WishlistGame>(games);
+                sortedGames = new List<WishlistGame>(gamesTemp);
                 sortedGames.Sort((x, y) => string.Compare(x.GameTitle, y.GameTitle));
-                games = new ObservableCollection<WishlistGame>(sortedGames);
+                games.Clear();
+                foreach (WishlistGame g in sortedGames)
+                {
+                    games.Add(g);
+                }
             }
-            foreach (WishlistGame g in games)
-            {
-                Debug.WriteLine(g.GameTitle);
-            }
+            return 0;
         }
 
         private void System_combobox_SelectedIndexChanged(object sender, SelectionChangedEventArgs e)
@@ -175,14 +183,14 @@ namespace Gaming_Backlog_Manager
                 games.Add(game);
                 ds.WishlistGames = games;
                 ds.SerializeWishlistGameAsync();
-                GetSave();
+                int gs = await GetSave();
                 game_title_textbox.Text = "";
                 system_combobox.SelectedItem = null;
                 datePicker.Date = null;
             }
             catch (Exception e)
             {
-                Debug.WriteLine(e.Message);
+                //Debug.WriteLine(e.Message);
             }
         }
 

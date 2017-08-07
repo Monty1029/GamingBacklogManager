@@ -121,7 +121,7 @@ namespace Gaming_Backlog_Manager
             }
             catch (Exception e)
             {
-                Debug.WriteLine(e.Message);
+                //Debug.WriteLine(e.Message);
             }
         }
 
@@ -178,7 +178,7 @@ namespace Gaming_Backlog_Manager
             }
             catch (Exception e)
             {
-                Debug.WriteLine(e.Message);
+                //Debug.WriteLine(e.Message);
             }
         }
     }
