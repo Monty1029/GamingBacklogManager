@@ -183,14 +183,14 @@ namespace Gaming_Backlog_Manager
                 games.Add(game);
                 ds.WishlistGames = games;
                 ds.SerializeWishlistGameAsync();
-                GetSave();
+                int gs = await GetSave();
                 game_title_textbox.Text = "";
                 system_combobox.SelectedItem = null;
                 datePicker.Date = null;
             }
             catch (Exception e)
             {
-                Debug.WriteLine(e.Message);
+                //Debug.WriteLine(e.Message);
             }
         }
 
