@@ -20,6 +20,10 @@ namespace Gaming_Backlog_Manager
         private string _notes { get; set; }
         private string _nowPlaying { get; set; }
 
+        private int _difficulty { get; set; }
+        private int _time { get; set; }        
+        private int _rating { get; set; }
+
         private int _id { get; set; }
 
         public Game()
@@ -144,6 +148,42 @@ namespace Gaming_Backlog_Manager
             set
             {
                 this._nowPlaying = value;
+            }
+        }        
+
+        public int Difficulty
+        {
+            get
+            {
+                return this._difficulty;
+            }
+            set
+            {
+                this._difficulty = value;
+            }
+        }
+
+        public int Time
+        {
+            get
+            {
+                return this._time;
+            }
+            set
+            {
+                this._time = value;
+            }
+        }
+
+        public int Rating
+        {
+            get
+            {
+                return this._rating;
+            }
+            set
+            {
+                this._rating = value;
             }
         }
 

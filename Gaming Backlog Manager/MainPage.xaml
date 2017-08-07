@@ -21,6 +21,8 @@
             <Button Content="System" HorizontalAlignment="Left" Margin="280,0,0,0" VerticalAlignment="Top" Click="Sort_System" FontWeight="Bold" Background="White"/>
             <Button Content="Status" HorizontalAlignment="Left" Margin="80,0,0,0" VerticalAlignment="Top" Click="Sort_Status" FontWeight="Bold" Background="White"/>
             <Button Content="Now Playing" HorizontalAlignment="Left" Margin="60,0,0,0" VerticalAlignment="Top" Click="Sort_NowPlaying" FontWeight="Bold" Background="White"/>
+            <Button Content="Difficulty (/10)" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Click="Sort_Difficulty" FontWeight="Bold" Background="White"/>
+            <Button Content="Time (hours)" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Click="Sort_Time" FontWeight="Bold" Background="White"/>
         </StackPanel>
         <ScrollViewer Grid.Row="2" Margin="0,42,0,0">
             <Grid>
@@ -49,6 +51,20 @@
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:Game">
                             <TextBlock Text="{x:Bind NowPlaying, Mode=OneWay}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView ItemsSource="{x:Bind games, Mode=OneWay}" HorizontalAlignment="Left" Margin="775,0,0,0" VerticalAlignment="Top" SelectionMode="None" Visibility="Visible">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="local:Game">
+                            <TextBlock Text="{x:Bind Difficulty, Mode=OneWay}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView ItemsSource="{x:Bind games, Mode=OneWay}" HorizontalAlignment="Left" Margin="910,0,0,0" VerticalAlignment="Top" SelectionMode="None" Visibility="Visible">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="local:Game">
+                            <TextBlock Text="{x:Bind Time, Mode=OneWay}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

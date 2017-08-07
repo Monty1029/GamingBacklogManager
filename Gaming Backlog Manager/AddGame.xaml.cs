@@ -48,6 +48,16 @@ namespace Gaming_Backlog_Manager
                 "Digital", "Physical"
             };
 
+        private ObservableCollection<int> difficulty = new ObservableCollection<int>
+            {
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+            };
+
+        private ObservableCollection<int> rating = new ObservableCollection<int>
+            {
+                1, 2, 3, 4, 5
+            };
+
         private string systemText;
         private string regionText;
         private string ownershipText;
@@ -55,6 +65,9 @@ namespace Gaming_Backlog_Manager
 
         private string statusText;
         private string nowPlayingInput = "No";
+
+        private int difficultyVal;
+        private int ratingVal;
 
         Game game = new Game();
         ObservableCollection<Game> games = new ObservableCollection<Game>();
@@ -180,6 +193,12 @@ namespace Gaming_Backlog_Manager
                 game.Achievements2 = Int32.Parse(achievements2_textbox.Text);
             }
             game.Notes = notes_textbox.Text;
+            game.Difficulty = difficultyVal;
+            game.Rating = ratingVal;
+            if (!time_textbox.Text.Equals("", StringComparison.Ordinal))
+            {
+                game.Time = Int32.Parse(time_textbox.Text);
+            }            
             CheckNowPlaying();
             game.NowPlaying = nowPlayingInput;
             StoreData();
@@ -250,6 +269,30 @@ namespace Gaming_Backlog_Manager
             }
         }
 
+        private void Difficulty_combobox_SelectedIndexChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (difficulty_combobox.SelectedItem == null)
+            {
+                return;
+            }
+            else
+            {
+                difficultyVal = (int)difficulty_combobox.SelectedItem;
+            }
+        }
+
+        private void Rating_combobox_SelectedIndexChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (rating_combobox.SelectedItem == null)
+            {
+                return;
+            }
+            else
+            {
+                ratingVal = (int)rating_combobox.SelectedItem;
+            }
+        }
+
         private void Go_Back(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage));
@@ -262,6 +305,6 @@ namespace Gaming_Backlog_Manager
                 CreateGame();
                 this.Frame.Navigate(typeof(MainPage));
             }
-        }
+        }        
     }
 }

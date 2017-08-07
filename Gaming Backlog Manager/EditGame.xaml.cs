@@ -48,6 +48,16 @@ namespace Gaming_Backlog_Manager
                 "Digital", "Physical"
             };
 
+        private ObservableCollection<int> difficulty = new ObservableCollection<int>
+            {
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+            };
+
+        private ObservableCollection<int> rating = new ObservableCollection<int>
+            {
+                1, 2, 3, 4, 5
+            };
+
         private string systemText;
         private string regionText;
         private string ownershipText;
@@ -55,6 +65,9 @@ namespace Gaming_Backlog_Manager
 
         private string statusText;
         private string nowPlayingInput = "No";
+
+        private int difficultyVal;
+        private int ratingVal;
 
         Game oldGame = new Game();
         Game game = new Game();
@@ -81,7 +94,7 @@ namespace Gaming_Backlog_Manager
             ownership_combobox.PlaceholderText = oldGame.Ownership;
             distribution_combobox.ItemsSource = distribution;
             distribution_combobox.SelectedItem = oldGame.Distribution;
-            distribution_combobox.PlaceholderText = oldGame.Distribution;
+            distribution_combobox.PlaceholderText = oldGame.Distribution;            
             if (oldGame.Status.Equals("Unplayed", StringComparison.Ordinal))
             {
                 status_unplayed.IsChecked = true;
@@ -105,6 +118,13 @@ namespace Gaming_Backlog_Manager
             {
                 now_playing_checkbox.IsChecked = true;
             }
+            difficulty_combobox.ItemsSource = difficulty;
+            difficulty_combobox.SelectedItem = oldGame.Difficulty;
+            difficulty_combobox.PlaceholderText = oldGame.Difficulty.ToString();
+            rating_combobox.ItemsSource = rating;
+            rating_combobox.SelectedItem = oldGame.Rating;
+            rating_combobox.PlaceholderText = oldGame.Rating.ToString();
+            time_textbox.Text = oldGame.Time.ToString();
         }
 
         private bool ValidateEntries()
@@ -221,6 +241,12 @@ namespace Gaming_Backlog_Manager
                 game.Achievements2 = Int32.Parse(achievements2_textbox.Text);
             }
             game.Notes = notes_textbox.Text;
+            game.Difficulty = difficultyVal;
+            game.Rating = ratingVal;
+            if (!time_textbox.Text.Equals("", StringComparison.Ordinal))
+            {
+                game.Time = Int32.Parse(time_textbox.Text);
+            }
             CheckNowPlaying();
             game.NowPlaying = nowPlayingInput;
             StoreData();
@@ -296,6 +322,30 @@ namespace Gaming_Backlog_Manager
             else
             {
                 distributionText = (string)distribution_combobox.SelectedItem;
+            }
+        }
+
+        private void Difficulty_combobox_SelectedIndexChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (difficulty_combobox.SelectedItem == null)
+            {
+                return;
+            }
+            else
+            {
+                difficultyVal = (int)difficulty_combobox.SelectedItem;
+            }
+        }
+
+        private void Rating_combobox_SelectedIndexChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (rating_combobox.SelectedItem == null)
+            {
+                return;
+            }
+            else
+            {
+                ratingVal = (int)rating_combobox.SelectedItem;
             }
         }
 

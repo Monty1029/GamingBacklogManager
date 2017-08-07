@@ -113,6 +113,32 @@ namespace Gaming_Backlog_Manager
             }
         }
 
+        private void Sort_Difficulty(object sender, RoutedEventArgs e)
+        {
+            if (games != null)
+            {
+                games.Clear();
+                sortedGames.Sort((x, y) => x.Difficulty.CompareTo(y.Difficulty));
+                foreach (Game g in sortedGames)
+                {
+                    games.Add(g);
+                }
+            }
+        }
+
+        private void Sort_Time(object sender, RoutedEventArgs e)
+        {
+            if (games != null)
+            {
+                games.Clear();
+                sortedGames.Sort((x, y) => x.Time.CompareTo(y.Time));
+                foreach (Game g in sortedGames)
+                {
+                    games.Add(g);
+                }
+            }
+        }
+
         private void Add_Game(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(AddGame));

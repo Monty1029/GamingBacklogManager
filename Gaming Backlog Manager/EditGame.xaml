@@ -10,7 +10,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Button Content="⇦" HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="40" Click="Go_Back"/>
         <ScrollViewer Margin="32,32,0,0">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Height="900" Margin="0,0,0,0" VerticalAlignment="Top" Width="500">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="500">
                 <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Game Information" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
                 <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Game Title" VerticalAlignment="Top"/>
                 <TextBox x:Name="game_title_textbox" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="500"/>
@@ -42,7 +42,16 @@
                 <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Notes" VerticalAlignment="Top"/>
                 <TextBox x:Name="notes_textbox" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="500" MinHeight="32"/>
                 <CheckBox x:Name="now_playing_checkbox" Content="Now Playing" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,25,0,0"/>
-                <Button x:Name="submit_button" Content="Save Changes" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,0" Click="Submit_Click" Width="120"/>
+
+                <TextBlock HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" Text="Miscellaneous" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Difficulty (out of 10)" VerticalAlignment="Top"/>
+                <ComboBox x:Name="difficulty_combobox" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind difficulty}" PlaceholderText="Select..." SelectionChanged="Difficulty_combobox_SelectedIndexChanged"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Estimated Time to Complete (hours)" VerticalAlignment="Top"/>
+                <TextBox x:Name="time_textbox" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="60"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Rating (out of 5)" VerticalAlignment="Top"/>
+                <ComboBox x:Name="rating_combobox" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind rating}" PlaceholderText="Select..." SelectionChanged="Rating_combobox_SelectedIndexChanged"/>
+
+                <Button x:Name="submit_button" Content="Save Changes" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,25,0,0" Click="Submit_Click" Width="120"/>
                 <Button Content="Remove Game" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" Click="Remove_Click" Width="120"/>
             </StackPanel>
         </ScrollViewer>
