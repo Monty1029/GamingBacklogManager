@@ -45,11 +45,11 @@
 
                 <TextBlock HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" Text="Miscellaneous" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
                 <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Difficulty (out of 10)" VerticalAlignment="Top"/>
-                <ComboBox x:Name="difficulty_combobox" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind difficulty}" PlaceholderText="Select..." SelectionChanged="Difficulty_combobox_SelectedIndexChanged"/>
+                <ComboBox x:Name="difficulty_combobox" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" ItemsSource="{x:Bind difficulty}" PlaceholderText="Select..." SelectionChanged="Difficulty_combobox_SelectedIndexChanged"/>
                 <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Estimated Time to Complete (hours)" VerticalAlignment="Top"/>
                 <TextBox x:Name="time_textbox" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="60"/>
                 <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Rating (out of 5)" VerticalAlignment="Top"/>
-                <ComboBox x:Name="rating_combobox" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{x:Bind rating}" PlaceholderText="Select..." SelectionChanged="Rating_combobox_SelectedIndexChanged"/>
+                <ComboBox x:Name="rating_combobox" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" ItemsSource="{x:Bind rating}" PlaceholderText="Select..." SelectionChanged="Rating_combobox_SelectedIndexChanged"/>
 
                 <Button x:Name="submit_button" Content="Add Game" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="-120,25,0,0" Click="Submit_Click" Background="PowderBlue"/>
                 <Button x:Name="submit_button_menu" Content="Add Game &amp;&#13;Back to Menu" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="110,-42,0,0" Click="SubmitMenu_Click" Background="PowderBlue"/>
