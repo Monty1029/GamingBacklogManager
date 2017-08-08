@@ -393,5 +393,27 @@ namespace Gaming_Backlog_Manager
                 //Debug.WriteLine(e.Message);
             }
         }
+
+        private void K(object sender, KeyRoutedEventArgs e)
+        {
+
+        }
+
+        private void time_(object sender, KeyRoutedEventArgs e)
+        {
+
+        }
+
+        private void Number_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(e.Key.ToString(), "[0-9]"))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

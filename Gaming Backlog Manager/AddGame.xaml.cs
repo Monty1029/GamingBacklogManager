@@ -305,6 +305,18 @@ namespace Gaming_Backlog_Manager
                 CreateGame();
                 this.Frame.Navigate(typeof(MainPage));
             }
-        }        
+        }
+
+        private void Number_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(e.Key.ToString(), "[0-9]"))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

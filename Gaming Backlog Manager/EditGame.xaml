@@ -35,9 +35,9 @@
                 </Border>
                 <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Achievements / Trophies" VerticalAlignment="Top"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="32" Margin="0,0,0,0" VerticalAlignment="Top" Width="250">
-                    <TextBox x:Name="achievements1_textbox" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="40"/>
+                    <TextBox x:Name="achievements1_textbox" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="40" KeyDown="Number_KeyDown"/>
                     <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text=" out of" VerticalAlignment="Top"/>
-                    <TextBox x:Name="achievements2_textbox" HorizontalAlignment="Left" Margin="5,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="40"/>
+                    <TextBox x:Name="achievements2_textbox" HorizontalAlignment="Left" Margin="5,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="40" KeyDown="Number_KeyDown"/>
                 </StackPanel>
                 <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Notes" VerticalAlignment="Top"/>
                 <TextBox x:Name="notes_textbox" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="500" MinHeight="32"/>
@@ -47,7 +47,7 @@
                 <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Difficulty (out of 10)" VerticalAlignment="Top"/>
                 <ComboBox x:Name="difficulty_combobox" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" ItemsSource="{x:Bind difficulty}" PlaceholderText="Select..." SelectionChanged="Difficulty_combobox_SelectedIndexChanged"/>
                 <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Estimated Time to Complete (hours)" VerticalAlignment="Top"/>
-                <TextBox x:Name="time_textbox" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="60"/>
+                <TextBox x:Name="time_textbox" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="60" KeyDown="Number_KeyDown"/>
                 <TextBlock HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="Rating (out of 5)" VerticalAlignment="Top"/>
                 <ComboBox x:Name="rating_combobox" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" ItemsSource="{x:Bind rating}" PlaceholderText="Select..." SelectionChanged="Rating_combobox_SelectedIndexChanged"/>
 
