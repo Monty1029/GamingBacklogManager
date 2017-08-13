@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="39911Monty1029.GamingBacklogManager" Publisher="CN=C0DA0044-A34F-4206-A19D-CF4040B9629D" Version="1.1.0.0" />
+  <Identity Name="39911Monty1029.GamingBacklogManager" Publisher="CN=C0DA0044-A34F-4206-A19D-CF4040B9629D" Version="1.1.1.0" />
   <mp:PhoneIdentity PhoneProductId="e502a8c6-ce35-42a3-9421-b3009dff3628" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Gaming Backlog Manager</DisplayName>

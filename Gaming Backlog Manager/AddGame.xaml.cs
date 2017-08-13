@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
@@ -28,7 +29,7 @@ namespace Gaming_Backlog_Manager
         private ObservableCollection<string> systems = new ObservableCollection<string>
             {
                 "3DO", "3DS", "Amiga", "Android", "Atari 2600", "Atari 5200", "Atari 7800", "ColecoVision", "Commodore 64", "Dreamcast", "DS", "Game Boy",
-                "Game Boy Color", "Game Advance", "GameCube", "iOS", "Jaguar", "NES", "NeoGeo Pocket Color", "Nintendo 64", "Nintendo Switch", "PC", "PlayStation",
+                "Game Boy Color", "Game Boy Advance", "GameCube", "iOS", "Jaguar", "NES", "NeoGeo Pocket Color", "Nintendo 64", "Nintendo Switch", "PC", "PlayStation",
                 "PlayStation 2", "PlayStation 3", "PlayStation 4", "PlayStation Vita", "PSP", "Sega Genesis", "Sega Genesis/Mega Drive", "Sega Master System",
                 "Sega Saturn", "Super Nintendo", "Turbo Grafx-16", "Wii U", "Wii", "Windows Mobile", "WonderSwan Color", "WonderSwan", "Xbox", "Xbox 360", "Xbox One"
             };
@@ -165,16 +166,16 @@ namespace Gaming_Backlog_Manager
             }
         }
 
-        private void Submit_Click(object sender, RoutedEventArgs e)
+        private async void Submit_Click(object sender, RoutedEventArgs e)
         {
             if (ValidateEntries())
             {
-                CreateGame();
+                int cg = await CreateGame();
                 this.Frame.Navigate(typeof(AddGame));
             }
         }
 
-        private void CreateGame()
+        private async Task<int> CreateGame()
         {
             Random rand = new Random();
             int id = rand.Next(1, 1000000);
@@ -201,10 +202,11 @@ namespace Gaming_Backlog_Manager
             }            
             CheckNowPlaying();
             game.NowPlaying = nowPlayingInput;
-            StoreData();
+            int sd = await StoreData();
+            return sd;
         }
 
-        private async void StoreData()
+        private async Task<int> StoreData()
         {
             DataStorage ds = new DataStorage();
             await ds.DeserializeGameAsync();
@@ -219,6 +221,7 @@ namespace Gaming_Backlog_Manager
             {
                 //Debug.WriteLine(e.Message);
             }
+            return 0;
         }
 
         private void System_combobox_SelectedIndexChanged(object sender, SelectionChangedEventArgs e)
@@ -298,11 +301,11 @@ namespace Gaming_Backlog_Manager
             this.Frame.Navigate(typeof(MainPage));
         }
 
-        private void SubmitMenu_Click(object sender, RoutedEventArgs e)
+        private async void SubmitMenu_Click(object sender, RoutedEventArgs e)
         {
             if (ValidateEntries())
             {
-                CreateGame();
+                int cg = await CreateGame();
                 this.Frame.Navigate(typeof(MainPage));
             }
         }

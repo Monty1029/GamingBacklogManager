@@ -19,12 +19,12 @@
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top">
             <Button Content="Game Title" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Click="Sort_GameTitle" FontWeight="Bold" Background="AliceBlue"/>
             <Button Content="System" HorizontalAlignment="Left" Margin="280,0,0,0" VerticalAlignment="Top" Click="Sort_System" FontWeight="Bold" Background="AliceBlue"/>
-            <Button Content="Status" HorizontalAlignment="Left" Margin="80,0,0,0" VerticalAlignment="Top" Click="Sort_Status" FontWeight="Bold" Background="AliceBlue"/>
+            <Button Content="Status" HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Click="Sort_Status" FontWeight="Bold" Background="AliceBlue"/>
             <Button Content="Now Playing" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" Click="Sort_NowPlaying" FontWeight="Bold" Background="AliceBlue"/>
             <Button Content="Difficulty (/10)" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Click="Sort_Difficulty" FontWeight="Bold" Background="AliceBlue"/>
             <Button Content="Time (hours)" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Click="Sort_Time" FontWeight="Bold" Background="AliceBlue"/>
         </StackPanel>
-        <ScrollViewer Grid.Row="2" Margin="0,42,0,0">
+        <ScrollViewer Grid.Row="2" Margin="0,42,0,0" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto">
             <Grid>
                 <ListView ItemsSource="{x:Bind games, Mode=OneWay}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" IsItemClickEnabled="True" SelectionChanged="MySelectionChanged" Visibility="Visible">
                     <ListView.ItemTemplate>
@@ -40,28 +40,28 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <ListView ItemsSource="{x:Bind games, Mode=OneWay}" HorizontalAlignment="Left" Margin="525,0,0,0" VerticalAlignment="Top" SelectionMode="None" Visibility="Visible">
+                <ListView ItemsSource="{x:Bind games, Mode=OneWay}" HorizontalAlignment="Left" Margin="575,0,0,0" VerticalAlignment="Top" SelectionMode="None" Visibility="Visible">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:Game">
                             <TextBlock Text="{x:Bind Status, Mode=OneWay}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <ListView ItemsSource="{x:Bind games, Mode=OneWay}" HorizontalAlignment="Left" Margin="635,0,0,0" VerticalAlignment="Top" SelectionMode="None" Visibility="Visible">
+                <ListView ItemsSource="{x:Bind games, Mode=OneWay}" HorizontalAlignment="Left" Margin="685,0,0,0" VerticalAlignment="Top" SelectionMode="None" Visibility="Visible">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:Game">
                             <TextBlock Text="{x:Bind NowPlaying, Mode=OneWay}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <ListView ItemsSource="{x:Bind games, Mode=OneWay}" HorizontalAlignment="Left" Margin="785,0,0,0" VerticalAlignment="Top" SelectionMode="None" Visibility="Visible">
+                <ListView ItemsSource="{x:Bind games, Mode=OneWay}" HorizontalAlignment="Left" Margin="835,0,0,0" VerticalAlignment="Top" SelectionMode="None" Visibility="Visible">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:Game">
                             <TextBlock Text="{x:Bind Difficulty, Mode=OneWay}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <ListView ItemsSource="{x:Bind games, Mode=OneWay}" HorizontalAlignment="Left" Margin="895,0,0,0" VerticalAlignment="Top" SelectionMode="None" Visibility="Visible">
+                <ListView ItemsSource="{x:Bind games, Mode=OneWay}" HorizontalAlignment="Left" Margin="945,0,0,0" VerticalAlignment="Top" SelectionMode="None" Visibility="Visible">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:Game">
                             <TextBlock Text="{x:Bind Time, Mode=OneWay}"/>
